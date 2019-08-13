@@ -1,0 +1,33 @@
+﻿---
+ID: "634ed15a-f575-51e9-9467-662d2a36cb4c"
+Parent: "a6758d66-37a8-57b5-9298-c7549cd902bc"
+Template: "acb886a0-ed77-5a9e-853a-6ae85e1f8e84"
+Path: "/sitecore/content/app/home/graphql/sample-1/Page Components/sample-1-jss-main-ContentBlock-1"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "ContentBlock-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T134439Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "b26e6bf0-3ba6-5177-b62b-6ffa7839d489"
+      Hint: heading
+      Value: GraphQL Sample 1
+    - ID: "fd40a01e-9ad2-51b5-abbc-007e74224b4a"
+      Hint: content
+      Value: |
+        <p>A child route here to illustrate the power of GraphQL queries. <a href="/graphql">Back to GraphQL route</a></p>
+        

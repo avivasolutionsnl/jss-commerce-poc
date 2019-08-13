@@ -1,0 +1,40 @@
+﻿---
+ID: "1b4bab4d-8afc-5bff-a89c-9cfd4d240091"
+Parent: "ffb2cc25-60cd-5c1c-8754-8cab2f8438f9"
+Template: "e57bc415-e71f-57f0-8932-cd5bfbfb6c95"
+Path: "/sitecore/content/app/home/styleguide/Page Components/styleguide-jss-styleguide-section-B7A4F8AD6E93A009B7A1F2DF9957E9F59E0069ECF65361BB997451C1257F427C02"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Styleguide-FieldUsage-Date-8"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "131be874-ff13-52c8-9d4c-6bece00cbd85"
+      Hint: dateTime
+      Value: 20180314T150000Z
+    - ID: "1a91db8e-81b3-50ed-ba05-bb37a85c6a3f"
+      Hint: date
+      Value: 20120504T000000Z
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T134441Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "4ca2dade-5dc2-53cd-96e8-d4177e13ad4f"
+      Hint: description
+      Value: |
+        <p><small>Both <code>Date</code> and <code>DateTime</code> field types are available. Choosing <code>DateTime</code> will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 formatted strings</a>, for example <code>2012-04-23T18:25:43.511Z</code>.</small></p>
+        <div class="alert alert-warning"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>
+        
+    - ID: "c80bea6c-18f0-5657-b38e-0ba4dde0337c"
+      Hint: heading
+      Value: Date

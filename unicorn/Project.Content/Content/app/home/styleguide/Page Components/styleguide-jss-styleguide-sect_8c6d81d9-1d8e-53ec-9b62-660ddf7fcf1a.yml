@@ -1,0 +1,52 @@
+﻿---
+ID: "8c6d81d9-1d8e-53ec-9b62-660ddf7fcf1a"
+Parent: "ffb2cc25-60cd-5c1c-8754-8cab2f8438f9"
+Template: "5b2ce6c4-bede-5fcd-923c-5d5e2fb2b25d"
+Path: "/sitecore/content/app/home/styleguide/Page Components/styleguide-jss-styleguide-section-B7985C8DEA10AB2C5CC77ABC90CF4126F21840592E09B2C6DB07D84D314CDCE0D4"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Styleguide-FieldUsage-ContentList-11"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T134441Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "4ca2dade-5dc2-53cd-96e8-d4177e13ad4f"
+      Hint: description
+      Value: |
+        <p>
+          <small>
+            Content Lists are a way to reference zero or more other content items.
+            Referenced items may be shared.
+            To reference a single content item, use an <em>Item Link</em> field.<br />
+            <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+          </small>
+        </p>
+        
+    - ID: "c80bea6c-18f0-5657-b38e-0ba4dde0337c"
+      Hint: heading
+      Value: Content List
+    - ID: "d1e01295-1f0d-54c5-85c9-cd9ab8bce157"
+      Hint: localContentList
+      Type: Treelist
+      Value: |
+        {ED7FD1C3-35DF-5D3D-8F9B-B75C97B1ABE4}
+        {94CD33E0-08DA-525A-A73F-3ADB5876424F}
+    - ID: "e79ba215-9ee1-5c3d-bdf5-b5e9cc8712d0"
+      Hint: sharedContentList
+      Type: Treelist
+      Value: |
+        {5FBB46D4-5090-5C92-967A-89DCEE9BB94F}
+        {B5EEA8DA-9B23-51D4-B84A-E0D28AF14F7C}

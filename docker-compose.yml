@@ -54,6 +54,7 @@ services:
     - .\logs\sitecore:c:\inetpub\wwwroot\${SITECORE_SITE_NAME}\App_Data\logs
     - .\wwwroot\sitecore:C:\Workspace
     - .\license:C:\license    
+    - .\unicorn:C:\inetpub\wwwroot\sitecore\App_Data\Unicorn    
   depends_on:
     - xconnect
     - mssql
