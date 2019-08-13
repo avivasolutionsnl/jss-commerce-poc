@@ -1,7 +1,6 @@
 version: '2.4'
 
 services:
-
  identity:
   image: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}identity:${TAG}"
   command: -commerceHostname ${COMMERCE_HOST_NAME} -sitecoreHostname ${SITECORE_HOST_NAME} -identityHostname ${IDENTITY_HOST_NAME}
