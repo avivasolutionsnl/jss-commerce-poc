@@ -69,9 +69,9 @@ namespace Gateway
                     {
                         headers.Clear();
                         headers.AddHeader("X-CommerceEngineCert", "MIIDVTCCAj2gAwIBAgIQWOvUQj+CJbxFGOz861oRQTANBgkqhkiG9w0BAQsFADAiMSAwHgYDVQQDDBdzaXRlY29yZS1kb2NrZXItZGV2b25seTAeFw0xOTA1MDIwOTAzNTJaFw0yMDA1MDIwOTIzNDlaMBoxGDAWBgNVBAMMD2NvbW1lcmNlLmNsaWVudDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKc1vSWE29/8hTTw7wrS0cm1ak9SZDWlP6d14SWkZlUoR9mwiTHhoF+DI2KVT3Dx9FzSDEfWqePaWc+ESJjmSjIFpynDkbjRC0yJZT1XfzGlC0mcMKXITr+2JQkUaCu0/jiyFF/R2pEWRo5k2Xa2/MO1ofHmGxaSSMPghwXHqeWg4z9W4MvqJPSXw6aPicO0gyJHyY+3SkAJCu1qVsAEd8Fu1bh/qxPSI2G6iOwZhdnRQynGnI7yyrXhWUI35BjeyvsuSnCUadKE+wzYSdSkcmJVZrrNhlTAgKOTT/KTm0Rfn1OtkzwfykJkCnEs9iXL/qrv3k5/YRs57wYZJMHPM30CAwEAAaOBjjCBizAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMBoGA1UdEQQTMBGCD2NvbW1lcmNlLmNsaWVudDAfBgNVHSMEGDAWgBT5WpDFI6EirnL+xmkUn6khRtc8jjAdBgNVHQ4EFgQU7crXh1BNsGln7beDLgXh6ZAoWWAwDQYJKoZIhvcNAQELBQADggEBABHoixOLWEzoQTBzV1I2bIym1v3DGkXht87fmyUOBN+ZjwiuS2sYteGBTsgGxDE8kNImCuN2akLzrNBul7O2qaF2DCdq7g7zrHHCHKeQV3i3jr8jgY3k6TKQjoLizgqjhTsnFaWIr3PljcG72wZyZyYD8BCU/jTllJfP/mCNWk4JIm2xB8kC/P1lRV+OHrh0KvR/McHp4ooQ4uyhPKkQnq6+VsYShIR7tZ8KN7/IYe0IOFd/v3zVJBklS22IzB2rH7mGUcoR2XAGgoo3emwUlT/0ONhePPhVWwU6vaFGBdOXozM3FRRVu+d+Th9bKGopVELaKp2ximBSWIlBGIGG7wQ=");
-                        headers.AddHeader("Environment", "MercuryFoodAuthoring");
+                        headers.AddHeader("Environment", "HabitatAuthoring");
                         headers.AddHeader("Language", "en-US");
-                        headers.AddHeader("Currency", "EUR");
+                        headers.AddHeader("Currency", "USD");
                         headers.AddHeader("ShopName", "CommerceEngineDefaultStorefront");
                     });
                                        

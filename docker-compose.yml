@@ -1,7 +1,6 @@
 version: '2.4'
 
 services:
-
  identity:
   image: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}identity:${TAG}"
   command: -commerceHostname ${COMMERCE_HOST_NAME} -sitecoreHostname ${SITECORE_HOST_NAME} -identityHostname ${IDENTITY_HOST_NAME}
@@ -26,7 +25,6 @@ services:
     - .\logs\commerce\CommerceMinions_Sc9:C:\inetpub\wwwroot\CommerceMinions_Sc9\wwwroot\logs
     - .\logs\commerce\CommerceOps_Sc9:C:\inetpub\wwwroot\CommerceOps_Sc9\wwwroot\logs
     - .\logs\commerce\CommerceShops_Sc9:C:\inetpub\wwwroot\CommerceShops_Sc9\wwwroot\logs
-    - .\logs\commerce\SitecoreIdentityServer:C:\inetpub\wwwroot\SitecoreIdentityServer\wwwroot\logs
     - .\wwwroot\commerce:C:\Workspace
   depends_on:
     - xconnect

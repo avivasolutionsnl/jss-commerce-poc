@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "01bb6543-058f-4d02-a6a0-e776c3b7a8f4",
+		"name": "API Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbm9ueW1vdXNfdXNlcl9pZCI6IjJlNTYxM2IwLTg2ODctNDJjMS05OWYyLTQ4NzM2MTIwMDU2ZSIsIm5iZiI6MTU2NDc0NzA5MywiZXhwIjoxNTY1MzUxODkzLCJpYXQiOjE1NjQ3NDcwOTN9.7tUt94Z-hJOUCYAqOW1F4BBcbZ3VYUL9EYBOiQsbbZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/carts/me",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"carts",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/identity/authentication/getanonymoustoken",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"identity",
+						"authentication",
+						"getanonymoustoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add cart line",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove cart line",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
