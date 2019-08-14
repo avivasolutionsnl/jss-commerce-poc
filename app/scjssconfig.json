@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "..\\wwwroot\\sitecore",
+    "apiKey": "{1F33A17A-47FC-44E4-9E72-96833F787ADB}",
+    "deploySecret": "k9gyflrxqta9h3ujk2c49y2tzjmyc1klya3tbaonsc",
+    "deployUrl": "http://sitecore/sitecore/api/jss/import",
+    "layoutServiceHost": "http://sitecore"
+  }
+}
