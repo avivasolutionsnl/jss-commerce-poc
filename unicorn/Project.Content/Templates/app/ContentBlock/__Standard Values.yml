@@ -1,0 +1,22 @@
+﻿---
+ID: "fc192ea0-0ee1-5c7c-841b-fa7bd00bf6d5"
+Parent: "acb886a0-ed77-5a9e-853a-6ae85e1f8e84"
+Template: "acb886a0-ed77-5a9e-853a-6ae85e1f8e84"
+Path: /sitecore/templates/Project/app/ContentBlock/__Standard Values
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T133630Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

@@ -1,0 +1,22 @@
+﻿---
+ID: "b63b0106-f5c2-5b5d-aa49-53d37aa41504"
+Parent: "0b01484c-bfa2-5fe7-83f6-2b8a7d1ea887"
+Template: "0b01484c-bfa2-5fe7-83f6-2b8a7d1ea887"
+Path: "/sitecore/templates/Project/app/Styleguide-FieldUsage-Checkbox/__Standard Values"
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T133632Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

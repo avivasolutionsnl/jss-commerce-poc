@@ -1,0 +1,42 @@
+﻿---
+ID: "13671517-50f1-596b-9684-fa46eefae388"
+Parent: "ef775073-d7bb-545e-ad61-12e18e7b45ef"
+Template: "611d06d3-a5c7-5582-b436-0919c9c8c0c0"
+Path: /sitecore/content/app/home
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{2C4A53CC-9DA8-5F51-9D79-6EE2FC671B2D}"
+              p:after="*[1=2]"
+              s:rname="ContentBlock"
+              s:ds="{196C60D5-A999-5A1E-AC6A-E8E8A5C72E59}"
+              s:id="{7F311784-6D14-5324-BA94-B42680ACEBB7}"
+              s:par=""
+              s:ph="/jss-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190813T134438Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "9dbd8e06-f54b-5f80-94d7-a14a81460e78"
+      Hint: pageTitle
+      Value: Welcome to Sitecore JSS
