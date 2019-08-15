@@ -59,7 +59,7 @@ namespace Poortwachter
 
         private Byte[] GetRequestBody(HttpRequest request)
         {
-            if (!request.Body.CanSeek || request.Body.Length == 0)
+            if (request.Body == null || !request.Body.CanRead)
             {
                 return null;
             }
