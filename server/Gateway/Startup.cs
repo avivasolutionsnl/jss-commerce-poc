@@ -46,7 +46,14 @@ namespace Gateway
                         ValidateAudience = false
                     };
                 });
-                        
+
+            services.AddCors(o => o.AddDefaultPolicy(builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -58,6 +65,7 @@ namespace Gateway
                 app.UseDeveloperExceptionPage();
             }
             app.UseAuthentication();
+            app.UseCors();
 
             app.Map("/api", config =>
             {
