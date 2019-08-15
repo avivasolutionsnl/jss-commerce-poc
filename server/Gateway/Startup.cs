@@ -94,7 +94,7 @@ namespace Gateway
                      .Method(HttpMethod.Get);
 
                     c.ReRoute("/carts/me/addline")
-                     .Method(HttpMethod.Post)
+                     .Method(HttpMethod.Put)
                      .To("https://commerce:5000/api/AddCartLine()")
                      .TransformBody((_, httpContext, bytes) =>
                      {
@@ -106,7 +106,7 @@ namespace Gateway
 
                         return Encoding.Default.GetBytes(o.ToString());
                      })
-                     .Method(HttpMethod.Post);
+                     .Method(HttpMethod.Put);
 
                     c.ReRoute("/carts/me/lines/{cartLineId}")
                      .Method(HttpMethod.Delete)
