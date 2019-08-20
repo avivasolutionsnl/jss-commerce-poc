@@ -1,0 +1,28 @@
+﻿---
+ID: "a16e6bf9-71f3-5411-a3f3-139abe4ba530"
+Parent: "3ec6abf1-ba5b-5baf-af0b-0abde5dc788d"
+Template: "d9f442f2-be87-5ecf-ae1d-bded56fa21b9"
+Path: "/sitecore/content/app/home/pdp/Page Components/pdp-jss-main-Title-1"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Title-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190820T100507Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "ad3aea3a-5487-51bf-9609-3fd80dcd4255"
+      Hint: title
+      Value: "Habitat NextCube-V Game Cube 1TB"

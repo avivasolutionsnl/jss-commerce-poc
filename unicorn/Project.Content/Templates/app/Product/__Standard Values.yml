@@ -4,6 +4,53 @@ Parent: "14a80548-bafa-451b-8844-56170152d1cf"
 Template: "14a80548-bafa-451b-8844-56170152d1cf"
 Path: /sitecore/templates/Project/app/Product/__Standard Values
 DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{F775311C-F20D-5485-946C-816E8C96A967}">
+        <p
+          uid="{30FEC599-3931-5DB7-8B74-9693414D45F4}"
+          key="jss-main"
+          md="{03815389-F26F-5276-9E2A-9F223C2A87AB}" />
+        <p
+          uid="{6F9EB117-6D40-59E6-8981-43D7B0A6DC19}"
+          key="jss-tabs"
+          md="{43A92C0F-20FD-5914-BEE2-AE42E30EEC58}" />
+        <p
+          uid="{14AB894F-CA90-5101-AA66-7644F4C43EA2}"
+          key="jss-graphql-layout"
+          md="{C8A34987-0594-543B-847A-4F8006FF3416}" />
+        <p
+          uid="{E7734550-7362-5A41-BB1A-DCD7336349DD}"
+          key="jss-styleguide-layout"
+          md="{DBBE3161-BCAD-5881-99C2-47293C4C578B}" />
+        <p
+          uid="{367F11CA-D739-5C29-BDC1-B0E031DC257F}"
+          key="jss-styleguide-section"
+          md="{83FC303D-EBDF-5E45-96AB-A152D9E6833A}" />
+        <p
+          uid="{289172BB-12B3-55B1-BAB8-B7880E3AD298}"
+          key="jss-header"
+          md="{674AEDB2-3042-5117-AC88-B7DD0F03F155}" />
+        <p
+          uid="{025BCB7F-8454-51E6-875D-77AD749061BF}"
+          key="jss-reuse-example"
+          md="{5ED58760-658E-567B-A148-6F6ADFA63F93}" />
+        <r
+          id="{12113245-246B-5FFA-B6C6-83F66025AD13}"
+          ph="jss-main"
+          uid="{EA24D614-4F9E-4284-8380-02A0E50E4753}" />
+        <r
+          id="{1BCA988F-E93F-582A-A5D0-C3BF80DF4A25}"
+          ph="jss-main"
+          uid="{912D05B0-1F07-4B69-8C53-61DDCE7A096D}" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:

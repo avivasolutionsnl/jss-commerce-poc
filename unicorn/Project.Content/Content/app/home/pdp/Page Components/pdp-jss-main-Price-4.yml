@@ -1,0 +1,28 @@
+﻿---
+ID: "472a39bb-169b-595b-84e5-27fa9fae5ab3"
+Parent: "3ec6abf1-ba5b-5baf-af0b-0abde5dc788d"
+Template: "94291fa8-d59a-5320-a15d-106190d36719"
+Path: "/sitecore/content/app/home/pdp/Page Components/pdp-jss-main-Price-4"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Price-4"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "19cb1193-84fd-5902-92e7-f24db1a06607"
+      Hint: listprice
+      Value: 3.99
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190820T100508Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
