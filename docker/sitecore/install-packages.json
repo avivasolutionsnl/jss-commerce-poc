@@ -1,0 +1,39 @@
+{
+    "Parameters": {
+      "HabitatImagesPackageFullPath": {
+        "Type": "string",
+        "Description": "The path to the Habitat images zip.",
+        "DefaultValue": "/files-mount/habitat-images-package.zip"
+      },      
+      "PackagesDirDst": {
+        "Type": "string",
+        "Description": "The path to packages directory.",
+        "DefaultValue": "C:\\inetpub\\wwwroot\\sitecore\\App_Data\\packages\\"
+      },
+      "BaseUrl": {
+        "Type": "string",
+        "Description": "The utility pages base url.",
+        "DefaultValue": "http://sitecore/SiteUtilityPages"
+      }
+    },
+    "Modules": [ "SitecoreUtilityTasks" ],
+    "Tasks": {
+      "CheckPaths": {
+        "Type": "EnsurePath",
+        "Params": {
+          "Exists": [
+             "[parameter('HabitatImagesPackageFullPath')]"
+          ]
+        }
+      },
+      "InstallHabitatImagesPackage": {
+        "Type": "InstallModule",
+        "Params": {
+          "ModuleFullPath": "[parameter('HabitatImagesPackageFullPath')]",
+          "ModulesDirDst": "[parameter('PackagesDirDst')]",
+          "BaseUrl": "[parameter('BaseUrl')]"
+        }
+      } 
+    }
+  }
+    
