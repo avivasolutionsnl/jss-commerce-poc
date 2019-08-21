@@ -30,3 +30,14 @@ a[target='_blank']:after {
 .cartline--remove {
   margin-left: auto;
 }
+
+.product-price {
+  color: dodgerblue;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 42px;
+}
+
+.product-price .currency {
+  font-size: 18px;
+  padding-right: 10px;
+}
