@@ -1,18 +1,17 @@
 import fetch from 'node-fetch';
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import { gatewayUrl } from '../../temp/config';
+import { gatewayUrl, productCatalog } from '../../temp/config';
 
 const Price = (props) => {
 
-  const catalogId = 'Habitat_Master';
   const productId = props.sitecoreContext.route.fields.ProductId.value;
 
   const [productData, setProductData] = useState();
 
   useEffect(() => {
     async function fetchData() {
-      fetch(`${gatewayUrl}/api/catalog/${catalogId}/sellableitems/${productId}`)
+      fetch(`${gatewayUrl}/api/catalog/${productCatalog}/sellableitems/${productId}`)
         .then(res => res.json())
         .then(data => setProductData(data))
     }

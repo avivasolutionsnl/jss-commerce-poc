@@ -12,7 +12,8 @@
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/api/app",
     "language": "en",
-    "gatewayUrl": "https://localhost:5001"
+    "gatewayUrl": "https://localhost:5001",
+    "productCatalog": "Habitat_Master"
   },
   "engines": {
     "node": ">=8.1",
