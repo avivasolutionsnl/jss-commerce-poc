@@ -2,3 +2,8 @@ styleguide-sample: This is a dictionary entry in English as a demonstration
 Documentation: Documentation
 Styleguide: Styleguide
 GraphQL: GraphQL
+cart-title: My Cart
+cart-is-empty: Your cart is empty!
+cart-total: Total
+cart-line-quantity: Total
+cart-line-remove: Remove

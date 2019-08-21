@@ -2,3 +2,8 @@ styleguide-sample: Dette er en ordbogspost på dansk som en demonstration
 Documentation: Dokumentation
 Styleguide: Styleguide
 GraphQL: GraphQL
+cart-title: Min indkøbsvogn
+cart-is-empty: Indkøbskurv er tom!
+cart-total: Total
+cart-line-quantity: Total
+cart-line-remove: Fjerne

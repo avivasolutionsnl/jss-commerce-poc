@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { withNamespaces } from 'react-i18next';
 import CartContext from '../../lib/CartContext';
 
 const AddCartLineButton = ({onAddCartLine, title, sellableItem}) => {
@@ -39,14 +40,13 @@ function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
   }
 }
 
-const CartLine = ({onRemoveCartLine, id, displayName, quantity, price}) => {
-  // TODO: make static text translatable
+const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, price}) => {
   return (
     <article className="cartline">
       <h2 className="cartline__name">{displayName}</h2>
-      <p className="cartline__quantity">Quantity: {quantity}</p>
+      <p className="cartline__quantity">{t('cart-line-quantity')}: {quantity}</p>
       <p className="cartline__price">{price}</p>
-      <button onClick={() => onRemoveCartLine(id)}>Remove</button>
+      <button onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
     </article>
   );
 };
@@ -61,26 +61,25 @@ function mapToCartProps({Totals, Lines}) {
   }
 }
 
-const Cart = () => {
+const Cart = ({t}) => {
   const cart = useContext(CartContext);
   
-  let cartLines = <p>Your cart is empty!</p>;
+  let cartLines = <p>{t('cart-is-empty')}</p>;
   let total = null;
 
   if (cart.data != null) {
     const data = mapToCartProps(cart.data);
 
     if (data.lines.length > 0) {
-      cartLines = data.lines.map((line, key) => <CartLine key={key} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
-      total = <p className="cart__price">Total {data.price}</p>;
+      cartLines = data.lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
+      total = <p className="cart__price">{t('cart-total')} {data.totalPrice}</p>;
     }
   }
 
-  // TODO: Make static text translatable
   return (
       <article className="cart">
         <header>
-          <h1 className="cart__title">Cart</h1>
+          <h1 className="cart__title">{t('cart-title')}</h1>
         </header>
         <section>{cartLines}</section>
         <footer>
@@ -92,4 +91,4 @@ const Cart = () => {
   )
 };
 
-export default Cart;
+export default withNamespaces()(Cart);
