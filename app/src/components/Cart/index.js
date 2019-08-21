@@ -27,35 +27,53 @@ const AddInstaClix = (props) => {
   return <AddCartLineButton title="Add InstaClix camera" sellableItem={sellableItem} {...props} />
 }
 
-// TODO: Make a React Commerce component library, e.g. based on https://react-bootstrap.github.io/
-const CartLine = ({onRemoveCartLine, CartLineComponents, Id, Quantity, Totals}) => {
+function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
   const cartProductComponent = CartLineComponents.find(e => e['@odata.type'] === '#Sitecore.Commerce.Plugin.Carts.CartProductComponent');
   const price = `${Totals.GrandTotal.CurrencyCode} ${Totals.GrandTotal.Amount}`;
 
+  return {
+    id: Id,
+    displayName: cartProductComponent.DisplayName,
+    quantity: Quantity,
+    price: price
+  }
+}
+
+const CartLine = ({onRemoveCartLine, id, displayName, quantity, price}) => {
   // TODO: make static text translatable
   return (
     <article className="cartline">
-      <h2 className="cartline__name">{cartProductComponent.DisplayName}</h2>
-      <p className="cartline__quantity">Quantity: {Quantity}</p>
+      <h2 className="cartline__name">{displayName}</h2>
+      <p className="cartline__quantity">Quantity: {quantity}</p>
       <p className="cartline__price">{price}</p>
-      <button onClick={() => onRemoveCartLine(Id)}>Remove</button>
+      <button onClick={() => onRemoveCartLine(id)}>Remove</button>
     </article>
   );
 };
+
+function mapToCartProps({Totals, Lines}) {
+  const grandTotal = Totals.GrandTotal;
+  const totalPrice = `${grandTotal.CurrencyCode} ${grandTotal.Amount}`;
+
+  return {
+    totalPrice: totalPrice,
+    lines: Lines
+  }
+}
 
 const Cart = () => {
   const cart = useContext(CartContext);
   
   let cartLines = <p>Your cart is empty!</p>;
   let total = null;
-  
-  const data = cart.data;
-  if (data != null && data.Lines.length > 0) {
-    cartLines = data.Lines.map((item, key) => <CartLine key={key} onRemoveCartLine={cart.actions.removeCartLine} {...item} />);
 
-    const grandTotal = data.Totals.GrandTotal;
-    const price = `${grandTotal.CurrencyCode} ${grandTotal.Amount}`;
-    total = <p className="cart__price">Total {price}</p>;
+  if (cart.data != null) {
+    const data = mapToCartProps(cart.data);
+
+    if (data.lines.length > 0) {
+      cartLines = data.lines.map((line, key) => <CartLine key={key} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
+      total = <p className="cart__price">Total {data.price}</p>;
+    }
   }
 
   // TODO: Make static text translatable
