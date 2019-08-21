@@ -1,8 +1,16 @@
 import fetch from 'node-fetch';
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
+import ls from 'local-storage';
 
 function getToken() {
+    const localStorageTokenKey = 'commerce-token';
+
+    const token = ls.get(localStorageTokenKey);
+    if (token) {
+        return Promise.resolve(token);
+    }
+
     return fetch('https://localhost:5001/identity/authentication/getanonymoustoken', {
         method: 'post'
     })
@@ -12,7 +20,10 @@ function getToken() {
         }
         return res.json();
     })
-    .then(json => json.token);
+    .then(json => {
+        ls.set(localStorageTokenKey, json.token);
+        return json.token;
+    });
 }
 
 export const AuthProvider = ({children}) => {
