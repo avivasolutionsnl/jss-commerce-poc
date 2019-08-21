@@ -20,11 +20,11 @@ const Price = (props) => {
   }, []);
 
   return (
-    <div className='product-price'>
-      <span className='currency'>
+    <div className='product__price'>
+      <span className='product__price__currency'>
         {productData && productData.ListPrice && productData.ListPrice.CurrencyCode}
       </span>  
-      <span className='price'>
+      <span className='product__price__price'>
         {productData && productData.ListPrice && productData.ListPrice.Amount}
       </span>
     </div>

@@ -31,13 +31,13 @@ a[target='_blank']:after {
   margin-left: auto;
 }
 
-.product-price {
+.product__price {
   color: dodgerblue;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 42px;
 }
 
-.product-price .currency {
+.product__price__currency {
   font-size: 18px;
   padding-right: 10px;
 }
