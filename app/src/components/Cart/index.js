@@ -46,7 +46,7 @@ const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, price}) => {
       <h2 className="cartline__name">{displayName}</h2>
       <p className="cartline__quantity">{t('cart-line-quantity')}: {quantity}</p>
       <p className="cartline__price">{price}</p>
-      <button onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
+      <button className="cartline--remove" onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
     </article>
   );
 };

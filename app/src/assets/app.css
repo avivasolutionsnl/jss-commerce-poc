@@ -8,3 +8,25 @@ a[target='_blank']:after {
   are set to edit mode.
 */
 .scChromeData, .scpm { display: none !important; }
+
+.cartline {
+  display: flex;
+  flex-direction: row;
+}
+
+.cartline__name {
+  align-self: flex-start;
+  font-size: 15px;
+}
+
+.cartline__price {
+  flex: 1 0 0;
+}
+
+.cartline__quantity {
+  flex: 1 0 0;
+}
+
+.cartline--remove {
+  margin-left: auto;
+}
