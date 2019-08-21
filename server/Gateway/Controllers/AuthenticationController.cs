@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -20,6 +21,7 @@ namespace Gateway.Controllers
             this.appSettings = appSettings.Value;
         }
 
+        [EnableCors]
         [AllowAnonymous]
         [HttpPost("getanonymoustoken")]
         public IActionResult Anonymous()
