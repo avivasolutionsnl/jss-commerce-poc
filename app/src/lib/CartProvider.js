@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import CartContext from './CartContext';
+import { gatewayUrl } from '../temp/config';
 
 function handleErrors(response) {
     if (!response.ok) {
@@ -11,7 +12,7 @@ function handleErrors(response) {
 }
 
 function getCart(token) {
-    return fetch('https://localhost:5001/api/carts/me', {
+    return fetch(`${gatewayUrl}/api/carts/me`, {
         headers: {
         'Authorization' : `Bearer ${token}`
         }
@@ -21,7 +22,7 @@ function getCart(token) {
 }
 
 export function addCartLine(token, line) {
-    return fetch('https://localhost:5001/api/carts/me/addline', {
+    return fetch(`${gatewayUrl}/api/carts/me/addline`, {
         method: 'put', 
         headers: {
         'Authorization' : `Bearer ${token}`, 
@@ -34,7 +35,7 @@ export function addCartLine(token, line) {
 }
 
 function removeCartLine(token, lineId) {
-    return fetch(`https://localhost:5001/api/carts/me/lines/${lineId}`, {
+    return fetch(`${gatewayUrl}/api/carts/me/lines/${lineId}`, {
         method: 'delete', 
         headers: {
             'Authorization' : `Bearer ${token}`, 

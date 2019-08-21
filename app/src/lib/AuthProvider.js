@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
+import ls from 'local-storage';
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import ls from 'local-storage';
+import { gatewayUrl } from '../temp/config';
 
 function getToken() {
     const localStorageTokenKey = 'commerce-token';
@@ -11,7 +12,7 @@ function getToken() {
         return Promise.resolve(token);
     }
 
-    return fetch('https://localhost:5001/identity/authentication/getanonymoustoken', {
+    return fetch(`${gatewayUrl}/identity/authentication/getanonymoustoken`, {
         method: 'post'
     })
     .then(res => {

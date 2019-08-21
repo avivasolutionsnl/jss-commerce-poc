@@ -11,7 +11,8 @@
     "sitecoreDistPath": "/dist/app",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/api/app",
-    "language": "en"
+    "language": "en",
+    "gatewayUrl": "https://localhost:5001"
   },
   "engines": {
     "node": ">=8.1",
