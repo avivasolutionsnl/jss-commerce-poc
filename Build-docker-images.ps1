@@ -24,5 +24,5 @@ docker-compose -f docker-compose.yml -f docker-compose.build.yml stop
 
 Write-Host -ForegroundColor Yellow "Committing images"
 
-docker commit jss-commerce_mssql_1 avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1.0-20190717
-docker commit jss-commerce_sitecore_1 avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1.0-20190717
+docker commit jss-commerce_mssql_1 avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1-20190822
+docker commit jss-commerce_sitecore_1 avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1-20190822
