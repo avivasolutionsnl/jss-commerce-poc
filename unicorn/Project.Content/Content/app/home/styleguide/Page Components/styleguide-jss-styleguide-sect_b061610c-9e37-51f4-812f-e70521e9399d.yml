@@ -20,11 +20,11 @@ Languages:
     - ID: "008f53e1-8f0a-5618-b9f4-60e546585e68"
       Hint: sample2
       Value: |
-        <image alt="Sitecore JSS Logo" mediaid="{CDB61AB3-0058-53FE-85A7-760C4B19CA2C}" />
+        <image mediaid="{CDB61AB3-0058-53FE-85A7-760C4B19CA2C}" alt="Sitecore JSS Logo" />
     - ID: "233bfb21-f964-5454-a314-c849561677c9"
       Hint: sample1
       Value: |
-        <image alt="Sitecore Logo" mediaid="{BA60D756-494C-5E60-8802-9ECF97662B6B}" />
+        <image mediaid="{BA60D756-494C-5E60-8802-9ECF97662B6B}" alt="Sitecore Logo" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190813T134440Z

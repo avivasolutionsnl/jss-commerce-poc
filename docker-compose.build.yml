@@ -1,0 +1,15 @@
+version: '2.4'
+
+services:
+
+  mssql:
+    image: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}mssql-jss:${TAG}"
+
+  sitecore:
+    volumes:  
+      - .\files:C:\files-mount  
+      - .\docker\sitecore:c:\sitecore
+    build:
+      context: ./docker/sitecore
+      args:
+        BASE_IMAGE: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}sitecore-jss:${TAG}"

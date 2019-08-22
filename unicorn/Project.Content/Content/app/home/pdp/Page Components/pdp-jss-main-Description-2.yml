@@ -1,0 +1,28 @@
+﻿---
+ID: "472f6ac9-f0e7-5511-8ac1-ab286a3abdbc"
+Parent: "3ec6abf1-ba5b-5baf-af0b-0abde5dc788d"
+Template: "334d6d2b-b7ad-58b3-806a-ce4944d03d09"
+Path: "/sitecore/content/app/home/pdp/Page Components/pdp-jss-main-Description-2"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Description-2"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190820T100507Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "aa9b3108-b3d8-5e10-9e92-e2a4b18455b5"
+      Hint: description
+      Value: "The Helix NextCube-V game consule features a 1TB hard drive, 4K Ultra HD video, dynamic gaming range and one full game download. Play NextCube originals with advanced features like in-game DVR and in-home streaming. Then stream video and watch HD Blu-ray movies in 4K Ultra HD."

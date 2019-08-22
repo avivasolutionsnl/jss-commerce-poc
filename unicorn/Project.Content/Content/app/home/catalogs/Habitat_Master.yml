@@ -1,0 +1,17 @@
+﻿---
+ID: "59ddadc1-9b88-727e-9e14-3f6cf321ae0f"
+Parent: "eb2f0c4b-eed8-4559-8350-1619c29095fa"
+Template: "93af861a-b6f4-45be-887d-d93d4b95b39d"
+Path: /sitecore/content/app/home/catalogs/Habitat_Master
+DB: master
+SharedFields:
+- ID: "f522cfb3-460f-48a4-a5d0-03c7435e2c87"
+  Hint: ProductTemplate
+  Value: "{14A80548-BAFA-451B-8844-56170152D1CF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Value: "20190814T174949:637014017891064053Z"
