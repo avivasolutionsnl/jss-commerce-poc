@@ -34,8 +34,6 @@ namespace Jss.Commerce.Pipelines.GetFieldSerializer
             Assert.ArgumentNotNull(field, nameof(field));
             Assert.ArgumentNotNull(writer, nameof(writer));
 
-            Log.Info("Serializing multi list field", this);
-
             using (RecursionLimit recursionLimit = new RecursionLimit(string.Format("{0}|{1}|{2}", GetType().FullName, field.Item.ID, field.ID), 1))
             {
                 if (recursionLimit.Exceeded)
@@ -58,11 +56,8 @@ namespace Jss.Commerce.Pipelines.GetFieldSerializer
                     {
                         if (obj.IsDerived(productTemplateId))
                         {
-                            Log.Info($"Not serializing multi list field item: {obj.ID}, because its a product", this);
                             continue;
                         }
-
-                        Log.Info($"Serializing multi list field item: {obj.ID} not a product", this);
 
                         writer.WriteStartObject();
                         writer.WritePropertyName("id");
