@@ -25,7 +25,7 @@ const ProductImage = (props) => {
   const alt = images[0].fields.Alt.value;
   const field = {value:{src: url, alt: alt}};
       
-  return <div className='product__image'><Image media={field} /></div>
+  return <Image className='product__image' media={field} />
 };
 
 export default withSitecoreContext()(ProductImage);
