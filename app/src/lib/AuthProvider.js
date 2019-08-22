@@ -31,7 +31,7 @@ export const AuthProvider = ({children}) => {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        getToken().then(t => setToken(t));
+        getToken().then(setToken);
     }, []);
 
     return (
