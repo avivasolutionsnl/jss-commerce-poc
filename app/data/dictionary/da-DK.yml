@@ -5,5 +5,7 @@ GraphQL: GraphQL
 cart-title: Min indkøbsvogn
 cart-is-empty: Indkøbskurv er tom!
 cart-total: Total
-cart-line-quantity: Total
+cart-line-quantity: Antal
 cart-line-remove: Fjerne
+checkout-title: Kassen
+checkout-fulfillment-email: Email

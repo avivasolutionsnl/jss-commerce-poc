@@ -114,6 +114,21 @@ namespace Gateway
                      .Method(HttpMethod.Put)
                      .AuthenticateWith("test");
 
+                     c.ReRoute("/carts/me/addemail")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/AddEmailToCart()")
+                     .TransformBody((_, httpContext, bytes) =>
+                     {
+                        var token = httpContext.User.FindFirst("anonymous_user_id").Value;
+
+                        var json = Encoding.Default.GetString(bytes);
+                        var o = JObject.Parse(json);
+                        o["cartId"] = token;
+
+                        return Encoding.Default.GetBytes(o.ToString());
+                     })
+                     .Method(HttpMethod.Put);
+
                     c.ReRoute("/carts/me/lines/{cartLineId}")
                      .Method(HttpMethod.Delete)
                      .To("https://commerce:5000/api/RemoveCartLine()")
