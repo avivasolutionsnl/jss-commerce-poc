@@ -36,7 +36,7 @@ export default ({ initialValues, onSubmit, validate }) => {
             ...errors,
             ...e
         });
-        onSubmit(values, e);
+        onSubmit(values, e, setErrors);
     };
 
     return {
