@@ -45,14 +45,15 @@ The API Gateway provides anonymous users a JWT which can be used to access Cart 
 
 Run the API Gateway from the `server/Gateway` folder:
 
+```
+PS> dotnet watch run
+```
+
 ## Build docker images
 - Add the Habitat images package to the `.\files` folder
 - Run the docker script `.\Build-docker-images.ps1 ` 
 - Publish the docker images, for example:
 
-```
-PS> dotnet watch run
-```
 docker push avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1.0-20190528
 docker push avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1.0-20190528
 ```
