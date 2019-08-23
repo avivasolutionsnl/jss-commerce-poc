@@ -5,6 +5,9 @@ Template: "93af861a-b6f4-45be-887d-d93d4b95b39d"
 Path: /sitecore/content/app/home/catalogs/Habitat_Master
 DB: master
 SharedFields:
+- ID: "2eacfeb4-2e9e-4144-a146-c2bf062463dc"
+  Hint: CategoryTemplate
+  Value: "{C6E81381-35E2-486B-B152-5A2AA6B86338}"
 - ID: "f522cfb3-460f-48a4-a5d0-03c7435e2c87"
   Hint: ProductTemplate
   Value: "{14A80548-BAFA-451B-8844-56170152D1CF}"

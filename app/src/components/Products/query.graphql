@@ -1,0 +1,19 @@
+query GetProducts($contextItem: String!) {
+  item(path: $contextItem) {
+    id
+    path
+    children(includeTemplateIDs: ["{14A80548-BAFA-451B-8844-56170152D1CF}"]) {
+      path,
+      displayName,
+      productId: field(name: "ProductId"){
+        value
+      },
+      description: field(name: "Description"){
+        value
+      },
+      images: field(name: "Images"){
+        value
+      }
+    }
+  }
+}

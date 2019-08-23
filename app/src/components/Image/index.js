@@ -15,17 +15,24 @@ function getImageUrlFromId(id) {
 }
 
 const ProductImage = (props) => {
-  const images = props.sitecoreContext.route.fields.Images;
 
-  if(!images || images.length == 0) {
+  const {imageId, ...other} = props;
+
+  if(!imageId) {
     return null;
   }
 
-  const url = getImageUrlFromId(images[0].id)
-  const alt = images[0].fields.Alt.value;
-  const field = {value:{src: url, alt: alt}};
-      
-  return <Image className='product__image' media={field} />
+  const url = getImageUrlFromId(imageId)
+  // const alt = images[0].fields.Alt.value;
+  const field = {value:{src: url, alt: ''}};
+
+  return <Image className='product__image' media={field} {...other} />
 };
 
-export default withSitecoreContext()(ProductImage);
+export {ProductImage};
+
+const DefaultProductImage = (props) => {
+  return <ProductImage imageId={props.sitecoreContext.route.fields.Images.length > 0 && props.sitecoreContext.route.fields.Images[0].id} />
+}
+
+export default withSitecoreContext()(DefaultProductImage);

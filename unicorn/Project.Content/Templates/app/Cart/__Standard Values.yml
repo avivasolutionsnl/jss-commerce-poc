@@ -1,0 +1,22 @@
+﻿---
+ID: "a783084d-fe38-5af9-acbd-766fc07af9d1"
+Parent: "ab7b99ec-d91b-5b97-85fb-ac5c708431f4"
+Template: "ab7b99ec-d91b-5b97-85fb-ac5c708431f4"
+Path: /sitecore/templates/Project/app/Cart/__Standard Values
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190821T154721Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

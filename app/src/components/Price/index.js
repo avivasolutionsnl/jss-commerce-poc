@@ -3,10 +3,7 @@ import React, { useEffect, useState} from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { gatewayUrl, productCatalog } from '../../temp/config';
 
-const Price = (props) => {
-
-  const productId = props.sitecoreContext.route.fields.ProductId.value;
-
+const Price = ({productId}) => {
   const [productData, setProductData] = useState();
 
   useEffect(() => {
@@ -31,4 +28,10 @@ const Price = (props) => {
   );
 };
 
-export default withSitecoreContext()(Price);
+export {Price};
+
+const DefaultPrice = (props) => {
+  return <Price productId={props.sitecoreContext.route.fields.ProductId.value} />
+}
+
+export default withSitecoreContext()(DefaultPrice);
