@@ -1,37 +1,12 @@
-import fetch from 'node-fetch';
-import React, { useEffect, useState} from 'react';
+import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import { gatewayUrl, productCatalog } from '../../temp/config';
+import useLivePrice from '../../shared/useLivePrice';
+import Price from '../../shared/components/price';
 
-const Price = ({productId}) => {
-  const [productData, setProductData] = useState();
+const ProductPrice = (props) => {
+  const {currencyCode, amount} = useLivePrice(props.sitecoreContext.route.fields.ProductId.value);
 
-  useEffect(() => {
-    async function fetchData() {
-      fetch(`${gatewayUrl}/api/catalog/${productCatalog}/sellableitems/${productId}`)
-        .then(res => res.json())
-        .then(data => setProductData(data))
-    }
-
-    fetchData();
-  }, []);
-
-  return (
-    <div className='product__price'>
-      <span className='product__price__currency'>
-        {productData && productData.ListPrice && productData.ListPrice.CurrencyCode}
-      </span>  
-      <span className='product__price__price'>
-        {productData && productData.ListPrice && productData.ListPrice.Amount}
-      </span>
-    </div>
-  );
-};
-
-export {Price};
-
-const DefaultPrice = (props) => {
-  return <Price productId={props.sitecoreContext.route.fields.ProductId.value} />
+  return <Price currencyCode={currencyCode} amount={amount} />
 }
 
-export default withSitecoreContext()(DefaultPrice);
+export default withSitecoreContext()(ProductPrice);

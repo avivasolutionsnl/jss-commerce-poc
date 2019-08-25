@@ -1,38 +1,20 @@
 import React from 'react';
-import config from '../../temp/config';
+import { fromImageId } from '../../lib/LinkBuilder';
 import { Image, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
-/*
-A hack to get the image url from the image id. Normally the json serializer returns 
-the image url in the props, when it is a Image field. In the commerce connect case
-it is a TreeList pointing to images. The MultilistFieldSerializer only returns the 
-fields of the related images and not the URL's. Probably we should extend JSS
-on the server side to include the image url.
-*/
-function getImageUrlFromId(id) {
-  const idWithoutDashes = id.replace(/-/g, "");
-  return `${config.sitecoreApiHost}/~/media/${idWithoutDashes}.ashx`;
-}
+const DefaultProductImage = (props) => {
 
-const ProductImage = (props) => {
+  const image = props.sitecoreContext.route.fields.Images.length > 0 && props.sitecoreContext.route.fields.Images[0];
 
-  const {imageId, ...other} = props;
-
-  if(!imageId) {
+  if(!image) {
     return null;
   }
 
-  const url = getImageUrlFromId(imageId)
-  // const alt = images[0].fields.Alt.value;
-  const field = {value:{src: url, alt: ''}};
+  const url = fromImageId(image.id)
+  const alt = image.fields.Alt.value;
+  const field = {value:{src: url, alt: alt}};
 
-  return <Image className='product__image' media={field} {...other} />
-};
-
-export {ProductImage};
-
-const DefaultProductImage = (props) => {
-  return <ProductImage imageId={props.sitecoreContext.route.fields.Images.length > 0 && props.sitecoreContext.route.fields.Images[0].id} />
+  return <Image className='product__image' media={field} />
 }
 
 export default withSitecoreContext()(DefaultProductImage);
