@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D91A4196-7213-40B0-80F9-9D4F8D1B2E33}</ProjectGuid>
+    <ProjectGuid>{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Serialization</RootNamespace>
-    <AssemblyName>Serialization</AssemblyName>
+    <RootNamespace>Jss.Commerce</RootNamespace>
+    <AssemblyName>Jss.Commerce</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44356</IISExpressSSLPort>
+    <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -43,25 +43,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Configy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Configy.1.0.0\lib\net45\Configy.dll</HintPath>
-    </Reference>
-    <Reference Include="Kamsar.WebConsole, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kamsar.WebConsole.2.0.1\lib\net40\Kamsar.WebConsole.dll</HintPath>
-    </Reference>
-    <Reference Include="MicroCHAP, Version=1.2.2.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MicroCHAP.1.2.2.2\lib\net45\MicroCHAP.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Rainbow, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Core.2.1.1\lib\net452\Rainbow.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow.Storage.Sc, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Sc.2.1.1\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+    <Reference Include="Sitecore.Commerce.Connect.Core, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Commerce.Connect.Core.12.0.18\lib\net471\Sitecore.Commerce.Connect.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow.Storage.Yaml, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rainbow.Storage.Yaml.2.1.1\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+    <Reference Include="Sitecore.Kernel, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Kernel.9.1.1\lib\net471\Sitecore.Kernel.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.LayoutService, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.LayoutService.4.0.3\lib\net471\Sitecore.LayoutService.dll</HintPath>
+    </Reference>
+    <Reference Include="sysglobl" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Globalization" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.FileSystem.Primitives" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,9 +83,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Unicorn, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unicorn.Core.4.1.1\lib\net452\Unicorn.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -88,30 +90,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Jss.Commerce.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pipelines\GetFieldSerializer\GetProductExcludingMultilistFieldSerializer.cs" />
+    <Compile Include="ItemExtensions.cs" />
+    <Compile Include="Pipelines\GetFieldSerializer\ProductExcludingMultilistFieldSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Rainbow.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.zSharedSecret.config.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.IdentityServer.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.DeployedContentEditorWarnings.config.disabled" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.UI.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.PowerShell.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.Dilithium.config.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.DataProvider.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.CustomSerializationFolder.config.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.NewItemsOnly.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Dependency.config.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
-    <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
-    <Content Include="App_Config\Include\Serialization.config" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,9 +122,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59779</DevelopmentServerPort>
+          <DevelopmentServerPort>64082</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44356/</IISUrl>
+          <IISUrl>http://localhost:64082/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

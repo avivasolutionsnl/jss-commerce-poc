@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Poortwachter.Tests", "Poort
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{D91A4196-7213-40B0-80F9-9D4F8D1B2E33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jss.Commerce", "Jss.Commerce\Jss.Commerce.csproj", "{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D91A4196-7213-40B0-80F9-9D4F8D1B2E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D91A4196-7213-40B0-80F9-9D4F8D1B2E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D91A4196-7213-40B0-80F9-9D4F8D1B2E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CF39EE-8C22-4D48-AEB1-3A95AC2CC4FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
