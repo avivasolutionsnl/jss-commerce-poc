@@ -25,6 +25,7 @@ Languages:
               uid="{015ABCE0-265D-5EF5-9E0D-C415136C6840}"
               p:after="p[@uid='{025BCB7F-8454-51E6-875D-77AD749061BF}']"
               s:rname="Title"
+              s:ds="{A16E6BF9-71F3-5411-A3F3-139ABE4BA530}"
               s:id="{12113245-246B-5FFA-B6C6-83F66025AD13}"
               s:par=""
               s:ph="/jss-main" />
@@ -32,6 +33,7 @@ Languages:
               uid="{9AB5F52D-8F26-5C5B-99B3-B5E8A16FA823}"
               p:after="r[@uid='{015ABCE0-265D-5EF5-9E0D-C415136C6840}']"
               s:rname="Description"
+              s:ds="{472F6AC9-F0E7-5511-8AC1-AB286A3ABDBC}"
               s:id="{1BCA988F-E93F-582A-A5D0-C3BF80DF4A25}"
               s:par=""
               s:ph="/jss-main" />

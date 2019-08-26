@@ -41,31 +41,3 @@ a[target='_blank']:after {
   font-size: 18px;
   padding-right: 10px;
 }
-
-.productcluster {
-  padding: 5px;
-}
-
-.productcluster__product {
-  border: 1px solid #dedede;
-  position: relative;
-  border-radius: 5px;
-  width: 33.333333%;
-  float: left;
-  height: 492px;
-  text-align: center;
-}
-
-.productcluster__product__name {
-  display: block;
-  font-size: 22px;
-  font-weight: bold
-}
-
-.productcluster__product__description {
-  display: block;
-}
-
-.productcluster__product__image {
-  display: inline-block;
-}
