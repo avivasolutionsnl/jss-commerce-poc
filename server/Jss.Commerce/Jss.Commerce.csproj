@@ -50,11 +50,23 @@
     <Reference Include="Sitecore.Commerce.Connect.Core, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.Commerce.Connect.Core.12.0.18\lib\net471\Sitecore.Commerce.Connect.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Commerce.Engine.Connect, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Commerce.Engine.Connect.3.0.45\lib\net471\Sitecore.Commerce.Engine.Connect.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.ContentSearch.9.1.1\lib\net471\Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Linq, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.ContentSearch.Linq.9.1.1\lib\net471\Sitecore.ContentSearch.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.Kernel.9.1.1\lib\net471\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.LayoutService, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sitecore.LayoutService.4.0.3\lib\net471\Sitecore.LayoutService.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Mvc, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Mvc.9.1.1\lib\net471\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="sysglobl" />
     <Reference Include="System.Design" />
@@ -76,6 +88,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -95,10 +108,13 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentResolvers\SubcategoryNavigationContentResolver.cs" />
     <Compile Include="Pipelines\GetFieldSerializer\GetProductExcludingMultilistFieldSerializer.cs" />
     <Compile Include="ItemExtensions.cs" />
     <Compile Include="Pipelines\GetFieldSerializer\ProductExcludingMultilistFieldSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContentResolvers\CategoryNavigationContentResolver.cs" />
+    <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

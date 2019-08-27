@@ -22,6 +22,10 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
+              uid="{FFDDF76C-905D-4F10-88E4-CA649B3D1E4A}">
+              <p:d />
+            </r>
+            <r
               uid="{5C424448-2B30-5910-ABE7-5021B762D542}"
               p:after="*[1=2]"
               s:rname="ContentBlock"
