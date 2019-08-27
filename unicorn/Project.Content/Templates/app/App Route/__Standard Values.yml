@@ -48,6 +48,12 @@ SharedFields:
           uid="{025BCB7F-8454-51E6-875D-77AD749061BF}"
           key="jss-reuse-example"
           md="{5ED58760-658E-567B-A148-6F6ADFA63F93}" />
+        <r
+          ds="{5E9C36EC-356F-4C35-8D87-592AEC0E2BD8}"
+          id="{2DA611E2-829D-5431-B5F1-18AE978CF3CD}"
+          par=""
+          ph="jss-main"
+          uid="{FFDDF76C-905D-4F10-88E4-CA649B3D1E4A}" />
       </d>
     </r>
 Languages:

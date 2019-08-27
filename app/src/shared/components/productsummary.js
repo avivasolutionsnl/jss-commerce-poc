@@ -4,6 +4,7 @@ import { Image } from '@sitecore-jss/sitecore-jss-react';
 import { fromImageId } from '../../lib/LinkBuilder';
 import useLivePrice from '../useLivePrice';
 import Price from './price';
+import { NavLink } from 'react-router-dom';
 
 const Description = ({description}) => {
 
@@ -36,7 +37,7 @@ const ProductPrice = ({productId}) => {
 const Title = ({path, displayName}) => {
     const url = fromPath(path);
     return <span className='productsummary__name'>
-        <a href={url}>{displayName}</a>
+        <NavLink to={url}>{displayName}</NavLink>
     </span>
 }
 

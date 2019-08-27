@@ -1,0 +1,22 @@
+﻿---
+ID: "652798c0-c34b-57b7-8880-4e33f19d6503"
+Parent: "7614dead-494d-5e9a-bd25-9676ad3d6b61"
+Template: "7614dead-494d-5e9a-bd25-9676ad3d6b61"
+Path: /sitecore/templates/Project/app/SubcategoryNavigation/__Standard Values
+DB: master
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190826T145246Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport

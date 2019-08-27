@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 a[target='_blank']:after {
   content: '\1F5D7'
 }
@@ -68,4 +70,27 @@ a[target='_blank']:after {
 
 .productsummary__image {
   display: inline-block;
+}
+
+.categorynavigation { @extend .navbar, .navbar-expand-lg, .navbar-light, .bg-light;
+  ul { @extend .navbar-nav;
+  }
+}
+
+.categorynavigation__navitem { @extend .nav-item;
+  a { @extend .nav-link;
+
+  }
+}
+
+.subcategorynavigation { @extend .navbar, .navbar-expand-lg, .navbar-dark, .bg-primary, .text-white;
+  ul { @extend .navbar-nav;
+  
+  }
+}
+
+.subcategorynavigation__navitem { @extend .nav-item;
+  a { @extend .nav-link;
+    
+  }
 }

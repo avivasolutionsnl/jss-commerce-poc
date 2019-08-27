@@ -42,13 +42,25 @@ SharedFields:
           key="jss-reuse-example"
           md="{5ED58760-658E-567B-A148-6F6ADFA63F93}" />
         <r
-          id="{12113245-246B-5FFA-B6C6-83F66025AD13}"
+          ds="{5E9C36EC-356F-4C35-8D87-592AEC0E2BD8}"
+          id="{2DA611E2-829D-5431-B5F1-18AE978CF3CD}"
+          par=""
           ph="jss-main"
-          uid="{28B8239A-263F-404A-A74A-53B7C72B1FFC}" />
+          uid="{FFDDF76C-905D-4F10-88E4-CA649B3D1E4A}" />
+        <r
+          id="{F0BF1B34-AE92-5F0C-83A9-A3D533832173}"
+          ph="jss-main"
+          uid="{99506BB1-15C7-4897-AD1F-478245963DDE}" />
+        <r
+          ds=""
+          id="{12113245-246B-5FFA-B6C6-83F66025AD13}"
+          par=""
+          ph="jss-main"
+          uid="{6B7A35D9-E171-4321-87EE-8AE09EA51A96}" />
         <r
           id="{F310245A-6EFC-5B18-89D4-1D430643D4BA}"
           ph="jss-main"
-          uid="{46EDB50A-3203-4203-811C-ADF85828207C}" />
+          uid="{F71B43E6-D177-407C-92AB-A608ECEF6911}" />
       </d>
     </r>
 Languages:

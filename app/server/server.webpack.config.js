@@ -53,6 +53,15 @@ module.exports = {
           loader: 'null-loader',
         },
       },
+      {
+        test: /\.(css|scss|sass)?$/,
+        exclude: /node_modules/,
+        use: [
+          require.resolve('style-loader'),
+          require.resolve('css-loader'),
+          require.resolve('sass-loader'),
+        ]
+      }
     ],
   },
 };
