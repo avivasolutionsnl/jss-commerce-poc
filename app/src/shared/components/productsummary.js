@@ -20,12 +20,12 @@ const Description = ({description}) => {
 
     const trimmedDescription = Truncate(description, 220);
 
-    return <span className='productcluster__product__description'>{trimmedDescription}</span>
+    return <span className='productsummary__description'>{trimmedDescription}</span>
 }
 
 const ProductImage = ({imageId}) => {
     const imageUrl = fromImageId(imageId);
-    return <Image className='productcluster__product__image' media={{src: imageUrl}} width={200} height={200} />
+    return <Image className='productsummary__image' media={{src: imageUrl}} width={200} height={200} />
 }
 
 const ProductPrice = ({productId}) => {
@@ -35,13 +35,13 @@ const ProductPrice = ({productId}) => {
 
 const Title = ({path, displayName}) => {
     const url = fromPath(path);
-    return <span className='productcluster__product__name'>
+    return <span className='productsummary__name'>
         <a href={url}>{displayName}</a>
     </span>
 }
 
 const ProductSummary = ({path, displayName, description, imageId, productId}) => {
-    return <article className='productcluster__product'>
+    return <article className='productsummary'>
       <Title path={path} displayName={displayName} />
       <Description description={description} />
       <ProductImage imageId={imageId}/>

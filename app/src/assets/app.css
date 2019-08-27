@@ -31,22 +31,22 @@ a[target='_blank']:after {
   margin-left: auto;
 }
 
-.product__price {
+.price {
   color: dodgerblue;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 42px;
 }
 
-.product__price__currency {
+.price__currency {
   font-size: 18px;
   padding-right: 10px;
 }
 
-.productcluster {
+.productlist {
   padding: 5px;
 }
 
-.productcluster__product {
+.productsummary {
   border: 1px solid #dedede;
   position: relative;
   border-radius: 5px;
@@ -56,16 +56,16 @@ a[target='_blank']:after {
   text-align: center;
 }
 
-.productcluster__product__name {
+.productsummary__name {
   display: block;
   font-size: 22px;
   font-weight: bold
 }
 
-.productcluster__product__description {
+.productsummary__description {
   display: block;
 }
 
-.productcluster__product__image {
+.productsummary__image {
   display: inline-block;
 }

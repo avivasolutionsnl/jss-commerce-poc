@@ -2,11 +2,11 @@ import React from 'react';
 
 const Price = ({currencyCode, amount}) => {
     return (
-      <div className='product__price'>
-        <span className='product__price__currency'>
+      <div className='price'>
+        <span className='price__currency'>
           {currencyCode}
         </span>  
-        <span className='product__price__price'>
+        <span className='price__price'>
           {amount}
         </span>
       </div>

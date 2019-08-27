@@ -3,11 +3,7 @@ import ProductSummary from './productsummary';
 
 const ProductList = ({products}) => {
     return <div className='productlist'>
-        {products && products.map(product => <ProductSummary path={product.path} 
-            productId={product.productId} 
-            displayName={product.displayName} 
-            description={product.description} 
-            imageId={product.imageId} />)}
+        {products && products.map(product => <ProductSummary {...product} />)}
     </div>
 }
 
