@@ -14,9 +14,13 @@ function useLivePrice(productId) {
       fetchData();
     }, []);
 
+    if(!productData) {
+      return {};
+    }
+
     return { 
-        currencyCode: productData && productData.ListPrice.CurrencyCode,  
-        amount: productData && productData.ListPrice.Amount
+        currencyCode: productData.ListPrice.CurrencyCode,  
+        amount: productData.ListPrice.Amount
     };
 }
 
