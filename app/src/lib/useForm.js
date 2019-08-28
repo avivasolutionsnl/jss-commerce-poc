@@ -2,7 +2,6 @@ import React from 'react';
 
 export default ({ initialValues, onSubmit, validate }) => {
     const [values, setValues] = React.useState(initialValues || {});
-    const [touchedValues, setTouchedValues] = React.useState({});
     const [errors, setErrors] = React.useState({});
 
     const handleChange = event => {
@@ -15,36 +14,20 @@ export default ({ initialValues, onSubmit, validate }) => {
         });
     };
 
-    const handleBlur = event => {
-        const target = event.target;
-        const name = target.name;
-        setTouchedValues({
-            ...touchedValues,
-            [name]: true
-        });
-        const e = validate(values);
-        setErrors({
-            ...errors,
-            ...e
-        });
-    };
-
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const e = validate(values);
         setErrors({
             ...errors,
             ...e
         });
-        onSubmit(values, e, setErrors);
+        await onSubmit(values, e, setErrors);
     };
 
     return {
         values,
-        touchedValues,
         errors,
         handleChange,
-        handleSubmit,
-        handleBlur
+        handleSubmit
     };
 };

@@ -103,21 +103,35 @@ namespace Gateway
                      .Method(HttpMethod.Put)
                      .To("https://commerce:5000/api/AddCartLine()")
                      .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
-                     .Method(HttpMethod.Put);
+                     .Method(HttpMethod.Put)
                      .AuthenticateWith("test");
 
                     c.ReRoute("/carts/me/addemail")
                      .Method(HttpMethod.Put)
                      .To("https://commerce:5000/api/AddEmailToCart()")
                      .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
-                     .Method(HttpMethod.Put);
+                     .Method(HttpMethod.Put)
                      .AuthenticateWith("test");
 
                     c.ReRoute("/carts/me/setfulfillment")
                      .Method(HttpMethod.Put)
                      .To("https://commerce:5000/api/SetCartFulfillment()")
                      .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
-                     .Method(HttpMethod.Put);
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
+
+                    c.ReRoute("/carts/me/addgiftcardpayment")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/AddGiftCardPayment()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
+
+                    c.ReRoute("/carts/me/createorder")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/CreateOrder()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes, id:"id"))
+                     .Method(HttpMethod.Put)
                      .AuthenticateWith("test");
 
                     c.ReRoute("/carts/me/lines/{cartLineId}")
@@ -151,13 +165,13 @@ namespace Gateway
             });
         }
 
-        private byte[] SetCartIdInBody(HttpContext httpContext, byte[] body)
+        private byte[] SetCartIdInBody(HttpContext httpContext, byte[] body, string id = "cartId")
         {
             var token = httpContext.User.FindFirst("anonymous_user_id").Value;
 
             var json = Encoding.Default.GetString(body);
             var o = JObject.Parse(json);
-            o["cartId"] = token;
+            o[id] = token;
 
             return Encoding.Default.GetBytes(o.ToString());
         }

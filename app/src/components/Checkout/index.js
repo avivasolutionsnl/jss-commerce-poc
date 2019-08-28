@@ -1,26 +1,8 @@
 import React, { useContext } from 'react';
 import { withNamespaces } from 'react-i18next';
-import { gatewayUrl } from '../../temp/config';
+import { Redirect } from 'react-router-dom';
 import useForm from '../../lib/useForm';
-import AuthContext from '../../lib/AuthContext';
-
-function addEmailToCart(token, email) {
-    return fetch(`${gatewayUrl}/api/carts/me/addemail`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response;
-    })
-    .then(res => res.json());
-}
+import CartContext from '../../lib/CartContext';
 
 function mapToFulfillment(values) {
     return {
@@ -44,53 +26,6 @@ function mapToFulfillment(values) {
     }
 }
 
-function mapMessagesToLines(messages) {
-    return messages.map(val => val.Text);
-}
-
-class CommerceError extends Error {
-    constructor(messages = [], ...params) {
-        super(...params);
-
-        // Maintains proper stack trace for where our error was thrown (only available on V8)
-        if (Error.captureStackTrace) {
-            Error.captureStackTrace(this, CommerceError);
-        }
-  
-        this.name = 'CommerceError';
-        this.messages = messages;
-    }
-}
-
-function setCartFulfillment(token, fulfillment) {
-    return fetch(`${gatewayUrl}/api/carts/me/setfulfillment`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(fulfillment)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response;
-    })
-    .then(res => res.json())
-    .then(json => {
-        if (json.ResponseCode === "Error") {
-            throw new CommerceError(mapMessagesToLines(json.Messages));
-        }
-        return json;
-    });
-}
-
-function performCheckout(token, values) {
-    return addEmailToCart(token, values.email)
-        .then(_ => setCartFulfillment(token, mapToFulfillment(values)));
-}
-
 const TextField = ({id, name, value, onChange}) => 
     <div>
         <label htmlFor={id}>{name}</label>
@@ -110,16 +45,18 @@ const Errors = ({errors}) => {
     const errorLines = Object.keys(errors).map(key => errors[key]).flat();
 
     return <ul>
-        {errorLines.map(e => <li>{e}</li>)}
+        {errorLines.map((e, i) => <li key={i}>{e}</li>)}
     </ul>
 }
 
-const FulfillmentInfoForm = ({t, onCheckout}) => {
+const FulfillmentInfoForm = ({actions}) => {
+    const [completed, setCompleted] = React.useState(false);
+
     const {
         values,
         errors,
         handleChange,
-        handleSubmit,
+        handleSubmit
     } = useForm({
         initialValues: {
             email: "",
@@ -132,10 +69,22 @@ const FulfillmentInfoForm = ({t, onCheckout}) => {
             zippostalcode: ""
         },
         onSubmit(values, validationErrors, setErrors) {
-            if (Object.keys(validationErrors).length === 0) {
-                onCheckout(values)
-                .catch(e => setErrors({...errors, commerceErrors: e.messages}));
+            async function performSubmit() {
+                if (Object.keys(validationErrors).length === 0) {
+                    try {
+                        await actions.addEmail(values.email);
+                        const cart = await actions.setFulfillment(mapToFulfillment(values));
+                        await actions.addGiftCardPayment(cart.Totals.GrandTotal.Amount);
+                        await actions.createOrder();
+
+                        setCompleted(true);
+                    } catch(e) {
+                        setErrors({...errors, commerceErrors: e.messages});
+                    }
+                }
             }
+
+            performSubmit();
         },
         validate(values) {
             const errors = {};
@@ -144,11 +93,17 @@ const FulfillmentInfoForm = ({t, onCheckout}) => {
                 errors.email = "Please enter an email address";
             }
 
+            // TODO: add more validation
+
             return errors;
         }
     });
 
-    return <form onSubmit={handleSubmit} >
+    if (completed) {
+        return (window.location.pathname !== "/order") ? <Redirect to="/order" /> : null;
+    }
+
+    return <form onSubmit={handleSubmit}>
         <h4>
             Fulfillment information
           <hr />
@@ -172,7 +127,7 @@ const FulfillmentInfoForm = ({t, onCheckout}) => {
 }
 
 const Checkout = ({t}) => {
-    const token = useContext(AuthContext);
+    const cart = useContext(CartContext);
 
     return (
         <article className="checkout">
@@ -180,7 +135,7 @@ const Checkout = ({t}) => {
                 <h1 className="checkout__title">{t('checkout-title')}</h1>
             </header>
             <section className="checkout__fulfillment_info">
-                <FulfillmentInfoForm t={t} onCheckout={values => performCheckout(token, values)} />
+                <FulfillmentInfoForm actions={cart.actions} />
             </section>
             <footer>
             </footer>
