@@ -2,32 +2,6 @@ import React, { useContext } from 'react';
 import { withNamespaces } from 'react-i18next';
 import CartContext from '../../lib/CartContext';
 
-const AddCartLineButton = ({onAddCartLine, title, sellableItem}) => {
-  return (
-    <button onClick={() => onAddCartLine(sellableItem)}>
-        {title}
-    </button>
-  );
-}
-
-const AddNomadPhone = (props) => {
-  const sellableItem = {
-    "itemId": "Habitat_Master|6042305|56042305",
-    "quantity": 1
-  }
-
-  return <AddCartLineButton title="Add Nomad phone" sellableItem={sellableItem} {...props} />
-}
-
-const AddInstaClix = (props) => {
-  const sellableItem = {
-    "itemId": "Habitat_Master|7042066|57042066",
-    "quantity": 1
-  }
-
-  return <AddCartLineButton title="Add InstaClix camera" sellableItem={sellableItem} {...props} />
-}
-
 function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
   const cartProductComponent = CartLineComponents.find(e => e['@odata.type'] === '#Sitecore.Commerce.Plugin.Carts.CartProductComponent');
   const price = `${Totals.GrandTotal.CurrencyCode} ${Totals.GrandTotal.Amount}`;
@@ -84,8 +58,6 @@ const Cart = ({t}) => {
         <section>{cartLines}</section>
         <footer>
           {total}
-          <AddNomadPhone onAddCartLine={cart.actions.addCartLine} />
-          <AddInstaClix onAddCartLine={cart.actions.addCartLine} />
         </footer>
       </article>
   )
