@@ -3,6 +3,7 @@ import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-r
 import { NavLink } from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
 import Helmet from 'react-helmet';
+import CartLink from './shared/components/cartlink';
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
 // without needing extra CSS in the sample app. Remove it in package.json as well if it's removed here.
@@ -36,6 +37,8 @@ let Navigation = ({ t, i18n }) => (
       >
         {t('Documentation')}
       </a>
+
+      <CartLink />
       <NavLink to="/styleguide" className="p-2 text-dark">
         {t('Styleguide')}
       </NavLink>

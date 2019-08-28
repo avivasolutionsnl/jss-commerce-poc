@@ -54,7 +54,7 @@ a[target='_blank']:after {
   border-radius: 5px;
   width: 33.333333%;
   float: left;
-  height: 492px;
+  height: 542px;
   text-align: center;
 }
 
@@ -93,4 +93,12 @@ a[target='_blank']:after {
   a { @extend .nav-link;
     
   }
+}
+
+.addtocart { @extend .btn, .btn-primary;  
+  display: block
+}
+
+.productsummary .addtocart  {
+  display: inline-block
 }

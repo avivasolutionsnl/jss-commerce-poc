@@ -5,6 +5,7 @@ import { fromImageId } from '../../lib/LinkBuilder';
 import useLivePrice from '../useLivePrice';
 import Price from './price';
 import { NavLink } from 'react-router-dom';
+import AddToCartButton from './addtocart';
 
 const Description = ({description}) => {
 
@@ -41,12 +42,13 @@ const Title = ({path, displayName}) => {
     </span>
 }
 
-const ProductSummary = ({path, displayName, description, imageId, productId}) => {
+const ProductSummary = ({path, displayName, description, imageId, productId, variantId}) => {
     return <article className='productsummary'>
       <Title path={path} displayName={displayName} />
       <Description description={description} />
       <ProductImage imageId={imageId}/>
       <ProductPrice productId={productId} /> 
+      <AddToCartButton productId={productId} variantId={variantId} /> 
     </article>
 }
 
