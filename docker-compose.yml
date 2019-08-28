@@ -34,7 +34,7 @@ services:
     - identity
 
  mssql:
-  image: "avivasolutionsnl.azurecr.io/jss-commerce-mssql:${TAG}"
+  image: "avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1-20190822"
   networks:
     - exampleNetwork 
   environment:
@@ -44,7 +44,7 @@ services:
     - .\data\mssql:C:\Data
   
  sitecore:
-  image: "avivasolutionsnl.azurecr.io/jss-commerce-sitecore:${TAG}"
+  image: "avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1-20190822"
   command: -commerceHostname ${COMMERCE_HOST_NAME} -identityHostname ${IDENTITY_HOST_NAME}
   networks:
     exampleNetwork:
