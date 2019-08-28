@@ -13,6 +13,9 @@ query GetProducts($contextItem: String!) {
       },
       images: field(name: "Images"){
         value
+      },
+      children {
+        name
       }
     }
   }

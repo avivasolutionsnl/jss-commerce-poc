@@ -18,7 +18,8 @@ const Products = (props) => {
     productId: p.productId.value,
     displayName: p.displayName,
     description: p.description.value,
-    imageId: p.images.value
+    imageId: p.images.value,
+    variantId: p.children.length > 0 ? p.children[0].name : ''
   }));
 
   return <div className='productcluster'>
@@ -29,4 +30,4 @@ const Products = (props) => {
   </div>
 };
 
-export default GraphQLData(GetProductsQuery, { name: 'getProductsQuery' })(Products);;
+export default GraphQLData(GetProductsQuery, { name: 'getProductsQuery' })(Products);

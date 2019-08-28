@@ -1,0 +1,7 @@
+query GetVariantId($contextItem: String!) {
+  item(path: $contextItem) {
+    children {
+      name
+    }
+  }
+}
