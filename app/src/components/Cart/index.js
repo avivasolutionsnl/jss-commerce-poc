@@ -1,36 +1,40 @@
 import React, { useContext } from 'react';
 import { withNamespaces } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 import CartContext from '../../lib/CartContext';
+import Price from '../../shared/components/price';
 
 function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
   const cartProductComponent = CartLineComponents.find(e => e['@odata.type'] === '#Sitecore.Commerce.Plugin.Carts.CartProductComponent');
-  const price = `${Totals.GrandTotal.CurrencyCode} ${Totals.GrandTotal.Amount}`;
 
   return {
     id: Id,
     displayName: cartProductComponent.DisplayName,
     quantity: Quantity,
-    price: price
+    amount: Totals.GrandTotal.Amount,
+    currencyCode: Totals.GrandTotal.CurrencyCode
   }
 }
 
-const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, price}) => {
+const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, amount, currencyCode}) => {
   return (
     <article className="cartline">
-      <h2 className="cartline__name">{displayName}</h2>
-      <p className="cartline__quantity">{t('cart-line-quantity')}: {quantity}</p>
-      <p className="cartline__price">{price}</p>
-      <button className="cartline--remove" onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
+      <p className="cartline__name">{displayName}</p>
+      <div className="cartline__actions">
+        <input className="cartline__quantity" value={quantity} readonly />
+        <Price amount={amount} currencyCode={currencyCode} />
+        <button className="cartline--remove" onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
+      </div>
     </article>
   );
 };
 
 function mapToCartProps({Totals, Lines}) {
   const grandTotal = Totals.GrandTotal;
-  const totalPrice = `${grandTotal.CurrencyCode} ${grandTotal.Amount}`;
 
   return {
-    totalPrice: totalPrice,
+    amount: grandTotal.Amount,
+    currencyCode: grandTotal.CurrencyCode,
     lines: Lines
   }
 }
@@ -40,13 +44,15 @@ const Cart = ({t}) => {
   
   let cartLines = <p>{t('cart-is-empty')}</p>;
   let total = null;
+  let toCheckout = null;
 
   if (cart.data != null) {
-    const data = mapToCartProps(cart.data);
+    const {amount, currencyCode, lines} = mapToCartProps(cart.data);
 
-    if (data.lines.length > 0) {
-      cartLines = data.lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
-      total = <p className="cart__price">{t('cart-total')} {data.totalPrice}</p>;
+    if (lines.length > 0) {
+      cartLines = lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
+      total = <p className="cart__price"><Price amount={amount} currencyCode={currencyCode} /></p>;
+      toCheckout = <NavLink className="cart--checkout" to="/checkout">Checkout</NavLink>;
     }
   }
 
@@ -55,9 +61,10 @@ const Cart = ({t}) => {
         <header>
           <h1 className="cart__title">{t('cart-title')}</h1>
         </header>
-        <section>{cartLines}</section>
+        <section className="cart__lines">{cartLines}</section>
         <footer>
           {total}
+          {toCheckout}
         </footer>
       </article>
   )

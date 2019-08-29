@@ -26,25 +26,26 @@ function mapToFulfillment(values) {
     }
 }
 
-const TextField = ({id, name, value, onChange}) => 
-    <div>
+const TextField = ({id, name, value, onChange, readOnly}) => 
+    <div className="textfield">
         <label htmlFor={id}>{name}</label>
         <input
             type="text"
             name={id}
             value={value}
             onChange={onChange}
+            readOnly={readOnly}
         />
     </div>
 
 const Errors = ({errors}) => {
-    if (!errors) {
+    if (!errors || Object.keys(errors).length === 0) {
         return null;
     }
 
     const errorLines = Object.keys(errors).map(key => errors[key]).flat();
 
-    return <ul>
+    return <ul className="errors">
         {errorLines.map((e, i) => <li key={i}>{e}</li>)}
     </ul>
 }
@@ -104,9 +105,11 @@ const FulfillmentInfoForm = ({actions}) => {
     }
 
     return <form onSubmit={handleSubmit}>
+        <Errors errors={errors}/>
+
         <h4>
-            Fulfillment information
-          <hr />
+            Shipping information
+            <hr />
         </h4>
 
         <TextField id="email" name="Email" value={values.email} onChange={handleChange} />
@@ -118,11 +121,13 @@ const FulfillmentInfoForm = ({actions}) => {
         <TextField id="country" name="Country" value={values.country} onChange={handleChange} />
         <TextField id="zippostalcode" name="Zip" value={values.zippostalcode} onChange={handleChange} />
 
-        <div>
-            <button type="submit">Checkout</button>
-        </div>
+        <h4>
+            Payment information
+            <hr />
+        </h4>
+        <TextField id="payment" name="Payment method" value="Giftcard" readOnly />
 
-        <Errors errors={errors}/>
+        <button className="fulfillmentinfoform--order" type="submit">Order</button>
     </form>;
 }
 
