@@ -37,7 +37,7 @@ a[target='_blank']:after {
     width: 50%;
   }
 
-  &__quantity { @extend .align-self-center;
+  &__quantity { @extend .align-self-center, .form-control;
     width: 50px;
   }
 

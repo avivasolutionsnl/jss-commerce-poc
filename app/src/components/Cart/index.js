@@ -21,7 +21,7 @@ const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, amount, curre
     <article className="cartline">
       <p className="cartline__name">{displayName}</p>
       <div className="cartline__actions">
-        <input className="cartline__quantity" value={quantity} readonly />
+        <input className="cartline__quantity" value={quantity} readOnly />
         <Price amount={amount} currencyCode={currencyCode} />
         <button className="cartline--remove" onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
       </div>
