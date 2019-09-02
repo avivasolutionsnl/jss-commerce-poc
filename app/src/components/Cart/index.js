@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { withNamespaces } from 'react-i18next';
+import { t } from 'i18next';
 import { NavLink } from 'react-router-dom';
 import CartContext from '../../lib/CartContext';
 import Price from '../../shared/components/price';
@@ -39,7 +39,7 @@ function mapToCartProps({Totals, Lines}) {
   }
 }
 
-const Cart = ({t}) => {
+const Cart = () => {
   const cart = useContext(CartContext);
   
   let cartLines = <p>{t('cart-is-empty')}</p>;
@@ -70,4 +70,4 @@ const Cart = ({t}) => {
   )
 };
 
-export default withNamespaces()(Cart);
+export default Cart;

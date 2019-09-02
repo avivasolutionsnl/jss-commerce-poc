@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { withNamespaces } from 'react-i18next';
+import { t } from 'i18next';
 import { Redirect } from 'react-router-dom';
 import useForm from '../../lib/useForm';
 import CartContext from '../../lib/CartContext';
@@ -109,7 +109,7 @@ const FulfillmentInfoForm = ({actions}) => {
     </form>;
 }
 
-const Checkout = ({t}) => {
+const Checkout = () => {
     const cart = useContext(CartContext);
 
     return (
@@ -124,4 +124,4 @@ const Checkout = ({t}) => {
     );
 }
 
-export default withNamespaces()(Checkout);
+export default Checkout;
