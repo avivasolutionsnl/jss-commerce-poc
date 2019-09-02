@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import ls from 'local-storage';
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import { gatewayUrl } from '../temp/config';
+import { gatewayUrl } from '../../temp/config';
 
 async function getToken() {
     const localStorageTokenKey = 'commerce-token';
@@ -26,7 +26,7 @@ async function getToken() {
     return json.token;
 }
 
-export const AuthProvider = ({children}) => {
+export default function AuthProvider({children}) {
     const [token, setToken] = useState(null);
 
     useEffect(() => {

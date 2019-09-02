@@ -1,67 +1,27 @@
-import fetch from 'node-fetch';
+
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import CartContext from './CartContext';
-import CommerceError from './CommerceError';
-import { gatewayUrl } from '../temp/config';
-
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
-}
+import commerceRequest from './request';
 
 async function getCart(token) {
     if (!token) {
         return null;
     }
 
-    let res = await fetch(`${gatewayUrl}/api/carts/me`, {
-        headers: {
-        'Authorization' : `Bearer ${token}`
-        }
-    });
-    res = handleErrors(res);
-    return res.json();
+    return commerceRequest.get('api/carts/me', token);
 }
 
 async function addCartLine(token, line) {
-    let res = await fetch(`${gatewayUrl}/api/carts/me/addline`, {
-        method: 'put', 
-        headers: {
-        'Authorization' : `Bearer ${token}`, 
-        'Content-Type' : 'application/json'
-        }, 
-        body: JSON.stringify(line)
-    });
-    res = handleErrors(res);
-    return res.json();
+    return commerceRequest.put('api/carts/me/addline', token, JSON.stringify(line));
 }
 
 async function removeCartLine(token, lineId) {
-    let res = await fetch(`${gatewayUrl}/api/carts/me/lines/${lineId}`, {
-        method: 'delete', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        }
-    });
-    res = handleErrors(res);
-    return res.json();
+    return commerceRequest.del(`api/carts/me/lines/${lineId}`, token);
 }
 
 async function addEmailToCart(token, email) {
-    let res = await fetch(`${gatewayUrl}/api/carts/me/addemail`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-    });
-    res = handleErrors(res);
-    return res.json();
+    return commerceRequest.put('api/carts/me/addemail', token, JSON.stringify({ email: email }));
 }
 
 async function setCartFulfillment(token, {firstname, lastname, city, address, state, country, zippostalcode}) {
@@ -85,21 +45,7 @@ async function setCartFulfillment(token, {firstname, lastname, city, address, st
         }
     };
 
-    let res = await fetch(`${gatewayUrl}/api/carts/me/setfulfillment`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(fulfillment)
-    });
-    res = handleErrors(res);
-
-    const json = await res.json();
-    if (json.ResponseCode === "Error") {
-        throw new CommerceError(json.Messages);
-    }
-    return json;
+    return commerceRequest.put('api/carts/me/setfulfillment', token, JSON.stringify(fulfillment));
 }
 
 async function addGiftCardPayment(token, amount) {
@@ -115,39 +61,11 @@ async function addGiftCardPayment(token, amount) {
         }
     }
 
-    let res = await fetch(`${gatewayUrl}/api/carts/me/addgiftcardpayment`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(payment)
-    });
-    res = handleErrors(res);
-    
-    const json = await res.json();
-    if (json.ResponseCode === "Error") {
-        throw new CommerceError(json.Messages);
-    }
-    return json;
+    return await commerceRequest.put('api/carts/me/addgiftcardpayment', token, JSON.stringify(payment));
 }
 
 async function createOrder(token, email) {
-    let res = await fetch(`${gatewayUrl}/api/carts/me/createorder`, {
-        method: 'put', 
-        headers: {
-            'Authorization' : `Bearer ${token}`, 
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({ email: email })
-    });
-    res = handleErrors(res);
-
-    const json = await res.json();
-    if (json.ResponseCode === "Error") {
-        throw new CommerceError(json.Messages);
-    }
-    return json;
+    return await commerceRequest.put('api/carts/me/createorder', token, JSON.stringify({ email: email }));
 }
 
 async function refreshCart(token, onUpdateCart) {
@@ -156,7 +74,7 @@ async function refreshCart(token, onUpdateCart) {
     return cart;
 }
 
-export const CartProvider = ({children}) => {
+export default function CartProvider({children}) {
     const token = useContext(AuthContext);
     const [cart, setCart] = useState(null);
     

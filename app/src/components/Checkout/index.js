@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { t } from 'i18next';
 import { Redirect } from 'react-router-dom';
 import useForm from '../../lib/useForm';
-import CartContext from '../../lib/CartContext';
+import { CartContext } from '../../lib/commerce';
 
 const TextField = ({id, name, value, onChange, readOnly}) => 
     <div className="textfield">

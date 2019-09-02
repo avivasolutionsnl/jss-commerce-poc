@@ -5,8 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import componentFactory from './temp/componentFactory';
 import SitecoreContextFactory from './lib/SitecoreContextFactory';
 import RouteHandler from './RouteHandler';
-import { AuthProvider } from './lib/AuthProvider';
-import { CartProvider } from './lib/CartProvider';
+import { CommerceProvider } from './lib/commerce';
 
 // This is the main JSX entry point of the app invoked by the renderer (server or client rendering).
 // By default the app's normal rendering is delegated to <RouteHandler> that handles the loading of JSS route data.
@@ -28,19 +27,17 @@ const AppRoot = ({ path, Router, graphQLClient }) => {
   const routeRenderFunction = (props) => <RouteHandler route={props} />;
   return (
     <ApolloProvider client={graphQLClient}>
-      <AuthProvider>
-        <CartProvider>
-          <SitecoreContext componentFactory={componentFactory} contextFactory={SitecoreContextFactory}>
-            <Router location={path} context={{}}>
-              <Switch>
-                {routePatterns.map((routePattern) => (
-                  <Route key={routePattern} path={routePattern} render={routeRenderFunction} />
-                ))}
-              </Switch>
-            </Router>
-          </SitecoreContext>
-        </CartProvider>
-      </AuthProvider>
+      <CommerceProvider>
+        <SitecoreContext componentFactory={componentFactory} contextFactory={SitecoreContextFactory}>
+          <Router location={path} context={{}}>
+            <Switch>
+              {routePatterns.map((routePattern) => (
+                <Route key={routePattern} path={routePattern} render={routeRenderFunction} />
+              ))}
+            </Switch>
+          </Router>
+        </SitecoreContext>
+      </CommerceProvider>
     </ApolloProvider>
   );
 };

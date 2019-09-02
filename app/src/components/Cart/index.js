@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { t } from 'i18next';
 import { NavLink } from 'react-router-dom';
-import CartContext from '../../lib/CartContext';
+import { CartContext } from '../../lib/commerce';
 import Price from '../../shared/components/price';
 
 function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
