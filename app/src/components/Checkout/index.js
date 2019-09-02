@@ -4,28 +4,6 @@ import { Redirect } from 'react-router-dom';
 import useForm from '../../lib/useForm';
 import CartContext from '../../lib/CartContext';
 
-function mapToFulfillment(values) {
-    return {
-        fulfillment : {
-            "@odata.type": "Sitecore.Commerce.Plugin.Fulfillment.PhysicalFulfillmentComponent",
-            shippingParty : {
-                AddressName: "default",
-                FirstName: values.firstname,
-                LastName: values.lastname,
-                City: values.city,
-                Address1: values.address,
-                State: values.state,
-                Country: values.country,
-                ZipPostalCode: values.zippostalcode
-            },
-            fulfillmentMethod: {
-                entityTarget: "b146622d-dc86-48a3-b72a-05ee8ffd187a", 
-                name: "Ground"
-            }
-        }
-    }
-}
-
 const TextField = ({id, name, value, onChange, readOnly}) => 
     <div className="textfield">
         <label htmlFor={id}>{name}</label>
@@ -74,7 +52,7 @@ const FulfillmentInfoForm = ({actions}) => {
                 if (Object.keys(validationErrors).length === 0) {
                     try {
                         await actions.addEmail(values.email);
-                        const cart = await actions.setFulfillment(mapToFulfillment(values));
+                        const cart = await actions.setFulfillment(values);
                         await actions.addGiftCardPayment(cart.Totals.GrandTotal.Amount);
                         await actions.createOrder();
 
@@ -139,11 +117,9 @@ const Checkout = ({t}) => {
             <header>
                 <h1 className="checkout__title">{t('checkout-title')}</h1>
             </header>
-            <section className="checkout__fulfillment_info">
+            <section className="checkout__info">
                 <FulfillmentInfoForm actions={cart.actions} />
             </section>
-            <footer>
-            </footer>
         </article>
     );
 }

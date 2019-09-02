@@ -64,7 +64,27 @@ async function addEmailToCart(token, email) {
     return res.json();
 }
 
-async function setCartFulfillment(token, fulfillment) {
+async function setCartFulfillment(token, {firstname, lastname, city, address, state, country, zippostalcode}) {
+    const fulfillment = {
+        fulfillment : {
+            "@odata.type": "Sitecore.Commerce.Plugin.Fulfillment.PhysicalFulfillmentComponent",
+            shippingParty : {
+                AddressName: "default",
+                FirstName: firstname,
+                LastName: lastname,
+                City: city,
+                Address1: address,
+                State: state,
+                Country: country,
+                ZipPostalCode: zippostalcode
+            },
+            fulfillmentMethod: {
+                entityTarget: "b146622d-dc86-48a3-b72a-05ee8ffd187a", 
+                name: "Ground"
+            }
+        }
+    };
+
     let res = await fetch(`${gatewayUrl}/api/carts/me/setfulfillment`, {
         method: 'put', 
         headers: {
@@ -149,8 +169,8 @@ export const CartProvider = ({children}) => {
             await removeCartLine(token, lineId);
             await refreshCart(token, setCart);
         },
-        setFulfillment: async (fulfillment) => {
-            await setCartFulfillment(token, fulfillment);
+        setFulfillment: async (values) => {
+            await setCartFulfillment(token, values);
             const cart = await refreshCart(token, setCart);
             return cart;
         },
