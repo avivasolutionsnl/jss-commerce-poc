@@ -51,7 +51,7 @@ const Cart = () => {
 
     if (lines.length > 0) {
       cartLines = lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
-      total = <p className="cart__price"><Price amount={amount} currencyCode={currencyCode} /></p>;
+      total = <Price className="cart__price" amount={amount} currencyCode={currencyCode} />;
       toCheckout = <NavLink className="cart--checkout" to="/checkout">Checkout</NavLink>;
     }
   }
