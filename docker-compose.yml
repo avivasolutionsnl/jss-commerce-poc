@@ -15,6 +15,8 @@ services:
 
  commerce:
   image: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}commerce:${TAG}"
+  mem_limit: 4096m
+  cpu_count: 6
   command: -commerceHostname ${COMMERCE_HOST_NAME} -sitecoreHostname ${SITECORE_HOST_NAME} -identityHostname ${IDENTITY_HOST_NAME}
   networks:
     exampleNetwork:
@@ -34,7 +36,9 @@ services:
     - identity
 
  mssql:
-  image: "avivasolutionsnl.azurecr.io/jss-commerce-mssql:${TAG}"
+  image: "avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1-20190822"
+  mem_limit: 4096m
+  cpu_count: 4
   networks:
     - exampleNetwork 
   environment:
@@ -44,7 +48,9 @@ services:
     - .\data\mssql:C:\Data
   
  sitecore:
-  image: "avivasolutionsnl.azurecr.io/jss-commerce-sitecore:${TAG}"
+  image: "avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1-20190822"
+  mem_limit: 8192m
+  cpu_count: 6
   command: -commerceHostname ${COMMERCE_HOST_NAME} -identityHostname ${IDENTITY_HOST_NAME}
   networks:
     exampleNetwork:
@@ -63,6 +69,8 @@ services:
   
  solr:
   image: "avivasolutionsnl.azurecr.io/${IMAGE_PREFIX}solr:${TAG}"
+  mem_limit: 4096m
+  cpu_count: 4
   networks:
     - exampleNetwork 
   volumes:

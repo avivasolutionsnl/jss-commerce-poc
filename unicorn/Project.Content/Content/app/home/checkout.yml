@@ -1,8 +1,8 @@
 ﻿---
-ID: "210da1ab-12a3-50de-b336-143e17f7bea2"
+ID: "3c46023b-2af2-5f60-919e-981550207160"
 Parent: "13671517-50f1-596b-9684-fa46eefae388"
 Template: "611d06d3-a5c7-5582-b436-0919c9c8c0c0"
-Path: /sitecore/content/app/home/cart
+Path: /sitecore/content/app/home/checkout
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -26,51 +26,30 @@ Languages:
               <p:d />
             </r>
             <r
-              uid="{B447347F-2278-5904-B0A9-DAC9F2DBEE9C}"
+              uid="{52635A3A-852E-57C6-BE76-DE0FA3546B4B}"
               p:after="*[1=2]"
-              s:rname="Cart"
-              s:id="{CF4C11EB-D21E-586B-BF78-C8C3ED6B4F2E}"
+              s:rname="Checkout"
+              s:id="{EA3FBF64-FFFB-56F3-A152-71EFF688AD55}"
               s:par=""
               s:ph="/jss-main" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190821T154725Z
+      Value: 20190828T124204Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
     - ID: "9dbd8e06-f54b-5f80-94d7-a14a81460e78"
       Hint: pageTitle
-      Value: My Cart
+      Value: My Checkout
 - Language: "nl-NL"
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Type: Layout
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-            <r
-              uid="{FFDDF76C-905D-4F10-88E4-CA649B3D1E4A}">
-              <p:d />
-            </r>
-            <r
-              uid="{D6374765-BB9A-4C1B-862C-D20FA5E2C002}"
-              p:after="*[1=2]"
-              s:ds=""
-              s:id="{CF4C11EB-D21E-586B-BF78-C8C3ED6B4F2E}"
-              s:par=""
-              s:ph="jss-main" />
-          </d>
-        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190903T115121Z
+      Value: 20190903T114821Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
@@ -80,4 +59,4 @@ Languages:
         sitecore\admin
     - ID: "9dbd8e06-f54b-5f80-94d7-a14a81460e78"
       Hint: pageTitle
-      Value: Mijn winkelwagen
+      Value: Mijn checkout

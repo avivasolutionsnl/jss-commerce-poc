@@ -14,12 +14,16 @@ const CategoryNavItem = ({path, displayName, active}) => {
   return <li className={classNames}><NavLink to={url}>{displayName}</NavLink></li>;
 } 
 
-const CategoryNavigation = (props) => (
-  <nav className='categorynavigation'>
-    <ul>
-      {props.fields.categories.map(c => <CategoryNavItem {...c} />)}
-    </ul>
-  </nav>
-);
+const CategoryNavigation = ({fields}) => {
+  const items = fields.categories ? fields.categories.map(c => <CategoryNavItem {...c} />) : null;
+
+  return (
+    <nav className='categorynavigation'>
+      <ul>
+        {items}
+      </ul>
+    </nav>
+  );
+};
 
 export default CategoryNavigation;

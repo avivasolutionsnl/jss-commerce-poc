@@ -23,7 +23,7 @@ namespace Jss.Commerce.ContentResolvers
 
             return new
             {
-                Categories = childCategories.Select(x => new
+                Categories = childCategories?.Select(x => new
                 {
                     x.ID,
                     Path = x.Paths.FullPath,

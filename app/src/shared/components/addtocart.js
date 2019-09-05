@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import CartContext from '../../lib/CartContext';
+import { CartContext } from '../../lib/commerce';
 import { productCatalog } from '../../temp/config';
 
 const AddToCartButton = ({productId, variantId}) => {

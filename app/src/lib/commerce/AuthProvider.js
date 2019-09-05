@@ -2,9 +2,9 @@ import fetch from 'node-fetch';
 import ls from 'local-storage';
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import { gatewayUrl } from '../temp/config';
+import { gatewayUrl } from '../../temp/config';
 
-function getToken() {
+async function getToken() {
     const localStorageTokenKey = 'commerce-token';
 
     const token = ls.get(localStorageTokenKey);
@@ -12,26 +12,30 @@ function getToken() {
         return Promise.resolve(token);
     }
 
-    return fetch(`${gatewayUrl}/identity/authentication/getanonymoustoken`, {
+    const res = await fetch(`${gatewayUrl}/identity/authentication/getanonymoustoken`, {
         method: 'post'
-    })
-    .then(res => {
-        if (!res.ok) {
-            throw Error(res.statusText);
-        }
-        return res.json();
-    })
-    .then(json => {
-        ls.set(localStorageTokenKey, json.token);
-        return json.token;
     });
+
+    if (!res.ok) {
+        throw Error(res.statusText);
+    }
+
+    const json = await res.json();
+    ls.set(localStorageTokenKey, json.token);
+
+    return json.token;
 }
 
-export const AuthProvider = ({children}) => {
+export default function AuthProvider({children}) {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        getToken().then(t => setToken(t));
+        async function retrieveToken() {
+            const token = await getToken();
+            setToken(token);
+        }
+
+        retrieveToken();
     }, []);
 
     return (

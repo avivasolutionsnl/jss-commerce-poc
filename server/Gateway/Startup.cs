@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -101,16 +102,35 @@ namespace Gateway
                     c.ReRoute("/carts/me/addline")
                      .Method(HttpMethod.Put)
                      .To("https://commerce:5000/api/AddCartLine()")
-                     .TransformBody((_, httpContext, bytes) =>
-                     {
-                        var token = httpContext.User.FindFirst("anonymous_user_id").Value;
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
 
-                        var json = Encoding.Default.GetString(bytes);
-                        var o = JObject.Parse(json);
-                        o["cartId"] = token;
+                    c.ReRoute("/carts/me/addemail")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/AddEmailToCart()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
 
-                        return Encoding.Default.GetBytes(o.ToString());
-                     })
+                    c.ReRoute("/carts/me/setfulfillment")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/SetCartFulfillment()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
+
+                    c.ReRoute("/carts/me/addgiftcardpayment")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/AddGiftCardPayment()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes))
+                     .Method(HttpMethod.Put)
+                     .AuthenticateWith("test");
+
+                    c.ReRoute("/carts/me/createorder")
+                     .Method(HttpMethod.Put)
+                     .To("https://commerce:5000/api/CreateOrder()")
+                     .TransformBody((_, httpContext, bytes) => SetCartIdInBody(httpContext, bytes, id:"id"))
                      .Method(HttpMethod.Put)
                      .AuthenticateWith("test");
 
@@ -143,6 +163,17 @@ namespace Gateway
             {
                 config.UseMvc();
             });
+        }
+
+        private byte[] SetCartIdInBody(HttpContext httpContext, byte[] body, string id = "cartId")
+        {
+            var token = httpContext.User.FindFirst("anonymous_user_id").Value;
+
+            var json = Encoding.Default.GetString(body);
+            var o = JObject.Parse(json);
+            o[id] = token;
+
+            return Encoding.Default.GetBytes(o.ToString());
         }
     }
 }
