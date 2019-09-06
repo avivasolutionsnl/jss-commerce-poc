@@ -5,7 +5,21 @@ import GraphQLData from '../../lib/GraphQLData';
 
 const GetProductsQuery = gqlLoader('./query.graphql');
 
+const ProductCluster = ({children}) => {
+  return <div className='productcluster'>
+    {children}
+  </div>
+}
+
 const Products = (props) => {
+  // Retrieve products from resolved datasource
+  if (props.fields.products) {
+    return <ProductCluster>
+      {<ProductList products={props.fields.products}/>}
+    </ProductCluster>
+  }
+
+  // Retrieve product using GraphQL
   const graphQLResult = props.getProductsQuery;
 
   const { error, loading } = graphQLResult;
@@ -22,12 +36,12 @@ const Products = (props) => {
     variantId: p.children.length > 0 ? p.children[0].name : ''
   }));
 
-  return <div className='productcluster'>
+  return <ProductCluster>
     {loading && <p className="alert alert-info">Loading products...</p>}
     {error && <p className="alert alert-danger">Error while loading products: {error.toString()}</p>}
 
     {products && <ProductList products={products}/>}
-  </div>
+  </ProductCluster>
 };
 
 export default GraphQLData(GetProductsQuery, { name: 'getProductsQuery' })(Products);
