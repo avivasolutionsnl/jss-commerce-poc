@@ -1,0 +1,28 @@
+﻿---
+ID: "139fa2a4-4f7c-4026-ac81-7af921111e1f"
+Parent: "4bd64ac3-856e-599f-935b-617c5d8efda2"
+Template: "3e719491-2327-59c8-a731-b453dce6be36"
+Path: /sitecore/content/app/home/Page Components/Product selection
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190906T081640Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "bf80814a-6c78-4b00-8572-8118bfd1d531"
+      Hint: Selection
+      Value: "brand:action"
