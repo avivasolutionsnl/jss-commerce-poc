@@ -12,6 +12,7 @@ export default function(manifest) {
     icon: SitecoreIcon.DocumentTag,
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
+      { name: 'Starting point', type: CommonFieldTypes.ItemLink }
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
