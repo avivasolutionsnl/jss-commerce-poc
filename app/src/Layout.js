@@ -29,22 +29,7 @@ let Navigation = ({ t, i18n }) => (
       </NavLink>
     </h5>
     <nav className="my-2 my-md-0 mr-md-3">
-      <a
-        className="p-2 text-dark"
-        href="https://jss.sitecore.net"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {t('Documentation')}
-      </a>
-
       <CartLink />
-      <NavLink to="/styleguide" className="p-2 text-dark">
-        {t('Styleguide')}
-      </NavLink>
-      <NavLink to="/graphql" className="p-2 text-dark">
-        {t('GraphQL')}
-      </NavLink>
     </nav>
   </div>
 );
