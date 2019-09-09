@@ -41,13 +41,13 @@ SharedFields:
           key="jss-reuse-example"
           md="{5ED58760-658E-567B-A148-6F6ADFA63F93}" />
         <p
-          uid="{30FEC599-3931-5DB7-8B74-9693414D45F4}"
-          key="jss-main"
-          md="{03815389-F26F-5276-9E2A-9F223C2A87AB}" />
-        <p
           uid="{6F9EB117-6D40-59E6-8981-43D7B0A6DC19}"
           key="jss-tabs"
           md="{43A92C0F-20FD-5914-BEE2-AE42E30EEC58}" />
+        <p
+          uid="{30FEC599-3931-5DB7-8B74-9693414D45F4}"
+          key="jss-main"
+          md="{03815389-F26F-5276-9E2A-9F223C2A87AB}" />
         <r
           ds="{5E9C36EC-356F-4C35-8D87-592AEC0E2BD8}"
           id="{2DA611E2-829D-5431-B5F1-18AE978CF3CD}"

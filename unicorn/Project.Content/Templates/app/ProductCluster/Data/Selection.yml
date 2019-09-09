@@ -1,0 +1,18 @@
+﻿---
+ID: "c42b5cbe-ab27-477a-8d09-1cd67a91a470"
+Parent: "8bb655a2-8823-41ab-9ba7-f4310f11b35c"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Project/app/ProductCluster/Data/Selection
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Query Builder
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190909T120334Z

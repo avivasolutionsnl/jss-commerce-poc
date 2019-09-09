@@ -1,0 +1,14 @@
+﻿---
+ID: "8bb655a2-8823-41ab-9ba7-f4310f11b35c"
+Parent: "0e8b0996-343d-5d8b-8a9e-f8f40fe8b4f1"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Project/app/ProductCluster/Data
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190909T120240Z

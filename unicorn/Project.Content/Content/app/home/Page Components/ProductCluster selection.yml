@@ -1,8 +1,8 @@
 ﻿---
-ID: "139fa2a4-4f7c-4026-ac81-7af921111e1f"
+ID: "1b11a135-2518-40ac-ab22-e60b43d5404e"
 Parent: "4bd64ac3-856e-599f-935b-617c5d8efda2"
-Template: "3e719491-2327-59c8-a731-b453dce6be36"
-Path: /sitecore/content/app/home/Page Components/Product selection
+Template: "0e8b0996-343d-5d8b-8a9e-f8f40fe8b4f1"
+Path: /sitecore/content/app/home/Page Components/ProductCluster selection
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -15,7 +15,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190906T081640Z
+      Value: 20190909T120351Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
@@ -23,9 +23,9 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "6990e2cb-b10f-5665-b239-1e38b2deaff9"
-      Hint: heading
-      Value: Action brands
-    - ID: "bf80814a-6c78-4b00-8572-8118bfd1d531"
+    - ID: "60caa2bf-f086-4ab2-9ddd-7416ec9ac4bf"
+      Hint: Heading
+      Value: Action products
+    - ID: "c42b5cbe-ab27-477a-8d09-1cd67a91a470"
       Hint: Selection
       Value: "brand:action"
