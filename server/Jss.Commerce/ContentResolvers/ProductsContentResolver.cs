@@ -69,6 +69,7 @@ namespace Jss.Commerce.ContentResolvers
 
             return new
             {
+                Heading = ((TextField)contextItem.Fields[Templates.Products.Heading]).Value,
                 Products = products.ToArray()
             };
         }

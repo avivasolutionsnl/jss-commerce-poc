@@ -23,6 +23,9 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "6990e2cb-b10f-5665-b239-1e38b2deaff9"
+      Hint: heading
+      Value: Action brands
     - ID: "bf80814a-6c78-4b00-8572-8118bfd1d531"
       Hint: Selection
       Value: "brand:action"

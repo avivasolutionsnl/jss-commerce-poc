@@ -5,8 +5,9 @@ import GraphQLData from '../../lib/GraphQLData';
 
 const GetProductsQuery = gqlLoader('./query.graphql');
 
-const ProductCluster = ({children}) => {
+const ProductCluster = ({title, children}) => {
   return <div className='productcluster'>
+    <h1 className='productcluster__title'>{title}</h1>
     {children}
   </div>
 }
@@ -14,7 +15,7 @@ const ProductCluster = ({children}) => {
 const Products = (props) => {
   // Retrieve products from resolved datasource
   if (props.fields.products) {
-    return <ProductCluster>
+    return <ProductCluster title={props.fields.heading}>
       {<ProductList products={props.fields.products}/>}
     </ProductCluster>
   }

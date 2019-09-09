@@ -21,6 +21,7 @@ namespace Jss.Commerce
 
         public struct Products
         {
+            public static readonly ID Heading = new ID("{6990E2CB-B10F-5665-B239-1E38B2DEAFF9}");
             public static readonly ID Selection = new ID("{BF80814A-6C78-4B00-8572-8118BFD1D531}");
         }
     }
