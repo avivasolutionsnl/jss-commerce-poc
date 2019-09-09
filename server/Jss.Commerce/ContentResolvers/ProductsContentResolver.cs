@@ -16,6 +16,11 @@ namespace Jss.Commerce.ContentResolvers
         public override object ResolveContents(Sitecore.Mvc.Presentation.Rendering rendering, IRenderingConfiguration renderingConfig)
         {
             var contextItem = GetContextItem(rendering, renderingConfig);
+            if (contextItem == null)
+            {
+                return new { };
+            }
+
             var selectionField = (DatasourceField)contextItem.Fields[Templates.Products.Selection];
 
             var query = selectionField.Value;
