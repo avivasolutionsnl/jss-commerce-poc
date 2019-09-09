@@ -5,7 +5,9 @@ import GraphQLData from '../../lib/GraphQLData';
 
 const GetProductsQuery = gqlLoader('./query.graphql');
 
+// Products component dynamically displays products based on its context
 const Products = (props) => {
+  // Retrieve product using GraphQL
   const graphQLResult = props.getProductsQuery;
 
   const { error, loading } = graphQLResult;
@@ -22,7 +24,7 @@ const Products = (props) => {
     variantId: p.children.length > 0 ? p.children[0].name : ''
   }));
 
-  return <div className='productcluster'>
+  return <div className='products'>
     {loading && <p className="alert alert-info">Loading products...</p>}
     {error && <p className="alert alert-danger">Error while loading products: {error.toString()}</p>}
 

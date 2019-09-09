@@ -17,7 +17,7 @@ const SubCategoryNavItem = ({path, displayName, active}) => {
 const SubcategoryNavigation = (props) => (
   <nav className='subcategorynavigation'>
     <ul>
-      {props.fields.categories.map(c => <SubCategoryNavItem {...c} />)}
+      {props.fields.categories.map((c, i) => <SubCategoryNavItem key={i} {...c} />)}
     </ul>
   </nav>
 );

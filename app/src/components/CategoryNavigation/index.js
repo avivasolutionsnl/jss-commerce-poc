@@ -15,7 +15,7 @@ const CategoryNavItem = ({path, displayName, active}) => {
 } 
 
 const CategoryNavigation = ({fields}) => {
-  const items = fields.categories ? fields.categories.map(c => <CategoryNavItem {...c} />) : null;
+  const items = fields.categories ? fields.categories.map((c, i) => <CategoryNavItem key={i} {...c} />) : null;
 
   return (
     <nav className='categorynavigation'>

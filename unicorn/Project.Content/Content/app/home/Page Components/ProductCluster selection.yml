@@ -1,13 +1,10 @@
 ﻿---
-ID: "5e9c36ec-356f-4c35-8d87-592aec0e2bd8"
+ID: "1b11a135-2518-40ac-ab22-e60b43d5404e"
 Parent: "4bd64ac3-856e-599f-935b-617c5d8efda2"
-Template: "f51e0f3d-8928-5a82-bd5d-ba7729f44c82"
-Path: "/sitecore/content/app/home/Page Components/CategoryNavigation-1"
+Template: "0e8b0996-343d-5d8b-8a9e-f8f40fe8b4f1"
+Path: /sitecore/content/app/home/Page Components/ProductCluster selection
 DB: master
 SharedFields:
-- ID: "090e6b82-1c24-57ab-9bf2-a7a4505315de"
-  Hint: Starting point
-  Value: "{B893C063-6238-ED57-700D-72862C56038D}"
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
@@ -16,16 +13,19 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "090e6b82-1c24-57ab-9bf2-a7a4505315de"
-      Hint: Starting point
-      Value: "{B893C063-6238-ED57-700D-72862C56038D}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190826T073844Z
+      Value: 20190909T120351Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{AF32C98B-C828-42AF-A649-74C1DE3303FB}"
+      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "60caa2bf-f086-4ab2-9ddd-7416ec9ac4bf"
+      Hint: Heading
+      Value: Action products
+    - ID: "c42b5cbe-ab27-477a-8d09-1cd67a91a470"
+      Hint: Selection
+      Value: "brand:action"
