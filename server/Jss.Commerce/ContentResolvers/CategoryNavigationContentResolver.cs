@@ -55,7 +55,16 @@ namespace Jss.Commerce.ContentResolvers
                     return null;
                 }
 
-                var childrenCategories = category[0]["childrencategorylist"];
+                var childrenCategories = String.Empty;
+
+                try
+                {
+                    childrenCategories = category[0]["childrencategorylist"];
+                }
+                catch (KeyNotFoundException)
+                {
+                    Sitecore.Diagnostics.Log.Info($"No children categories found for {category[0].DisplayName}", this);
+                }
 
                 if (string.IsNullOrEmpty(childrenCategories))
                 {
