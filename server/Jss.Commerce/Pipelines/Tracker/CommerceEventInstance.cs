@@ -5,9 +5,17 @@ using System.Collections.Generic;
 
 namespace Jss.Commerce.Pipelines.Tracker
 {
-    [Serializable]
+    /// <summary>
+    /// Commerce tracking event instance. Named accordingly to JSS naming (e.g. EventInstance, GoalInstance).
+    /// Currently this supports a subset of fields that are required for cart line added/removed tracking.
+    /// </summary>
     public class CommerceEventInstance
     {
+        /// <summary>
+        /// Minimum set of cart line fields that is required for tracking.
+        /// Currently only used as JSON parser definition, and only inside a CommerceEventInstance 
+        /// and therefore modelled as inner class.
+        /// </summary>
         public class CartLine
         {
             public string Product { get; set; }

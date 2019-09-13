@@ -10,8 +10,15 @@ using System.Linq;
 
 namespace Jss.Commerce.Pipelines.Tracker
 {
+    /// <summary>
+    /// Track commerce events using the Commerce Connect layer.
+    /// Currently this only tracks cartline added and removed events.
+    /// </summary>
     public class TrackCommerceEvent : MarketingDefinitionBasedEventProcessor<CommerceEventInstance, IPageEventDefinition>
     {
+        private static readonly string LinesAddedEventId = "Lines Added To Cart";
+        private static readonly string LinesRemovedEventId = "Lines Removed From Cart";
+
         protected override bool IsValidEvent(CommerceEventInstance eventInstance)
         {
             return !string.IsNullOrWhiteSpace(eventInstance.CommerceEventId);
@@ -39,15 +46,15 @@ namespace Jss.Commerce.Pipelines.Tracker
 
         protected CartLinesRequest CreateCartLinesRequest(CommerceEventInstance eventInstance)
         {
-            var cart = EventToCartEntity(eventInstance);
+            var cart = MapEventToCartEntity(eventInstance);
             var lines = cart.Lines; // Only the modified lines are passed in the event, so modified equal total cart lines
             CartLinesRequest request;
 
-            if (eventInstance.CommerceEventId == "Lines Added To Cart") //TODO: When there will be more events implemented, create an enum thats more maintainable.
+            if (eventInstance.CommerceEventId == LinesAddedEventId) //TODO: When there will be more events implemented, create an enum thats more maintainable.
             {
                 request = new AddCartLinesRequest(cart, lines);
             }
-            else if (eventInstance.CommerceEventId == "Lines Removed From Cart")
+            else if (eventInstance.CommerceEventId == LinesRemovedEventId)
             {
                 request = new RemoveCartLinesRequest(cart, lines);
             }
@@ -61,7 +68,7 @@ namespace Jss.Commerce.Pipelines.Tracker
             return request;
         }
 
-        protected Sitecore.Commerce.Entities.Carts.Cart EventToCartEntity(CommerceEventInstance eventInstance)
+        protected Sitecore.Commerce.Entities.Carts.Cart MapEventToCartEntity(CommerceEventInstance eventInstance)
         {
             var cartLines = eventInstance.CartLines.Select(line => new Sitecore.Commerce.Entities.Carts.CartLine
             {
