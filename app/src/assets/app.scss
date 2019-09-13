@@ -133,3 +133,6 @@ a[target='_blank']:after {
   display: inline-block
 }
 
+.abandon-session { @extend .btn, .btn-danger;  
+}
+

@@ -16,14 +16,16 @@ function mapToCartLineProps({CartLineComponents, Id, Quantity, Totals}) {
   }
 }
 
-const CartLine = ({t, onRemoveCartLine, id, displayName, quantity, amount, currencyCode}) => {
+const CartLine = ({t, onRemoveCartLine, line}) => {
+  const {displayName, quantity, amount, currencyCode} = line;
+
   return (
     <article className="cartline">
       <p className="cartline__name">{displayName}</p>
       <div className="cartline__actions">
         <input className="cartline__quantity" value={quantity} readOnly />
         <Price amount={amount} currencyCode={currencyCode} />
-        <button className="cartline--remove" onClick={() => onRemoveCartLine(id)}>{t('cart-line-remove')}</button>
+        <button className="cartline--remove" onClick={() => onRemoveCartLine(line)}>{t('cart-line-remove')}</button>
       </div>
     </article>
   );
@@ -50,7 +52,7 @@ const Cart = () => {
     const {amount, currencyCode, lines} = mapToCartProps(cart.data);
 
     if (lines.length > 0) {
-      cartLines = lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} {...mapToCartLineProps(line)} />);
+      cartLines = lines.map((line, key) => <CartLine key={key} t={t} onRemoveCartLine={cart.actions.removeCartLine} line={mapToCartLineProps(line)} />);
       total = <Price className="cart__price" amount={amount} currencyCode={currencyCode} />;
       toCheckout = <NavLink className="cart--checkout" to="/checkout">{t('cart-to-checkout')}</NavLink>;
     }

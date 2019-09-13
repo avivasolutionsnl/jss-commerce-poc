@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import CartContext from './CartContext';
 import commerceRequest from './request';
+import { trackCartlineAdded, trackCartlineRemoved } from './tracking';
 
 async function getCart(token) {
     if (!token) {
@@ -13,11 +14,13 @@ async function getCart(token) {
 }
 
 async function addCartLine(token, line) {
-    return commerceRequest.put('api/carts/me/addline', token, JSON.stringify(line));
+    await commerceRequest.put('api/carts/me/addline', token, JSON.stringify(line));
+    trackCartlineAdded(line);
 }
 
-async function removeCartLine(token, lineId) {
-    return commerceRequest.del(`api/carts/me/lines/${lineId}`, token);
+async function removeCartLine(token, line) {
+    await commerceRequest.del(`api/carts/me/lines/${line.id}`, token);
+    trackCartlineRemoved(line);
 }
 
 async function addEmailToCart(token, email) {
@@ -83,8 +86,8 @@ export default function CartProvider({children}) {
             await addCartLine(token, line);
             await refreshCart(token, setCart);
         },
-        removeCartLine: async (lineId) => {
-            await removeCartLine(token, lineId);
+        removeCartLine: async (line) => {
+            await removeCartLine(token, line);
             await refreshCart(token, setCart);
         },
         setFulfillment: async (values) => {
