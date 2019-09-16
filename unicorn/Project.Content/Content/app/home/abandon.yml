@@ -1,0 +1,44 @@
+﻿---
+ID: "deb5ba81-c3e0-461e-9e12-adc57aafffc5"
+Parent: "13671517-50f1-596b-9684-fa46eefae388"
+Template: "611d06d3-a5c7-5582-b436-0919c9c8c0c0"
+Path: /sitecore/content/app/home/abandon
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{FFDDF76C-905D-4F10-88E4-CA649B3D1E4A}">
+              <p:d />
+            </r>
+            <r
+              uid="{5C9092F5-7856-4D2D-AE18-1AE57280C14A}"
+              p:after="*[1=2]"
+              s:id="{EE2692DE-A89F-5503-A773-6B2012275CCC}"
+              s:ph="jss-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190913T084756Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCFDBB96-946A-4D2F-BCCD-5573073FC176}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

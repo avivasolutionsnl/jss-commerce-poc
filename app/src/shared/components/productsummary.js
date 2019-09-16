@@ -48,7 +48,7 @@ const ProductSummary = ({path, displayName, description, imageId, productId, var
       <Description description={description} />
       <ProductImage imageId={imageId}/>
       <ProductPrice productId={productId} /> 
-      <AddToCartButton productId={productId} variantId={variantId} /> 
+      <AddToCartButton productId={productId} variantId={variantId} displayName={displayName} /> 
     </article>
 }
 
