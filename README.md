@@ -54,6 +54,7 @@ PS> dotnet watch run
 - Run the docker script `.\Build-docker-images.ps1 ` 
 - Publish the docker images, for example:
 
+```
 docker push avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1.0-20190528
 docker push avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1.0-20190528
 ```
