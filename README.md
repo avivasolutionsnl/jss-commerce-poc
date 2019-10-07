@@ -57,3 +57,27 @@ PS> dotnet watch run
 docker push avivasolutionsnl.azurecr.io/jss-commerce-sitecore:9.1.0-20190528
 docker push avivasolutionsnl.azurecr.io/jss-commerce-mssql:9.1.0-20190528
 ```
+
+## Headless SSR mode
+To use the [Headless mode](https://jss.sitecore.com/docs/techniques/ssr/headless-mode-ssr), build the application:
+```
+PS app> jss build
+```
+
+Next copy the build artefacts to a `dist` directory:
+```
+PS app> cp -R build/* dist/app/
+```
+
+The `dist/app` directory is configured as `sitecoreDistPath` and in `headless-ssr-proxy.js` and `headless-ssr-proxy-config.js`.
+
+Next you can run the SSR proxy using:
+```
+PS app> npm run start:headless
+```
+
+This will start an [Express JS](https://expressjs.com/) server as reverse-proxy.
+
+You can now navigate to http://localhost:3000 to visit the site.
+
+More details about the various deployment modes you can find [here](https://www.youtube.com/watch?v=YUBpmZMi7R4).
